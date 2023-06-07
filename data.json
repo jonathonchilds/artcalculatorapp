@@ -1,0 +1,122 @@
+[
+  {
+    "paperType": "Hahnemühle Photo Rag Ultrasmooth",
+    "paperWeight": "305 gsm",
+    "description": "Smooth Matte Finish - Hot Press",
+    "priceEach": 45.56,
+    "fiveCopies": 41.0,
+    "multiplier": 20.5
+  },
+  {
+    "paperType": "Hahnemühle William Turner Watercolor",
+    "paperWeight": "308 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "priceEach": 45.56,
+    "fiveCopies": 41.0,
+    "multiplier": 20.5
+  },
+  {
+    "paperType": "Hahnemühle Photo Rag Satin",
+    "paperWeight": "310 gsm",
+    "description": "Subtle sheen in printed areas – Slight texture",
+    "priceEach": 45.56,
+    "fiveCopies": 41.0,
+    "multiplier": 20.5
+  },
+  {
+    "paperType": "Hahnemühle Photo Rag Pearl",
+    "paperWeight": "320 gsm",
+    "description": "Luster finish, Vibrant colors – Slight texture",
+    "priceEach": 45.56,
+    "fiveCopies": 41.0,
+    "multiplier": 20.5
+  },
+  {
+    "paperType": "Hahnemühle Photo Rag Metallic",
+    "paperWeight": "340 gsm",
+    "description": "The only cotton rag paper w/ a silver metallic base. Excellent for BW or color",
+    "priceEach": 51.11,
+    "fiveCopies": 46.0,
+    "multiplier": 23.0
+  },
+  {
+    "paperType": "Hahnemühle Photo Rag Baryta Gloss",
+    "paperWeight": "320 gsm",
+    "description": "High Gloss finish, Vibrant colors – Slight texture",
+    "priceEach": 51.11,
+    "fiveCopies": 46.0,
+    "multiplier": 23.0
+  },
+  {
+    "paperType": "Arches Aquarelle Watercolor",
+    "paperWeight": "240 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "priceEach": 43.33,
+    "fiveCopies": 39.0,
+    "multiplier": 19.5
+  },
+  {
+    "paperType": "BFK Rives Watercolor",
+    "paperWeight": "310 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "priceEach": 43.33,
+    "fiveCopies": 39.0,
+    "multiplier": 19.5
+  },
+  {
+    "paperType": "Somerset Enhanced Velvet Watercolor",
+    "paperWeight": "255 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "priceEach": 37.78,
+    "fiveCopies": 34.0,
+    "multiplier": 17.0
+  },
+  {
+    "paperType": "Museo Echt",
+    "paperWeight": "210 gsm",
+    "description": "Matte Finish - Hot Press",
+    "priceEach": 30.0,
+    "fiveCopies": 27.0,
+    "multiplier": 13.5
+  },
+  {
+    "paperType": "Moenkopi Unryu Fiber",
+    "paperWeight": "55 gsm (Rice Paper)",
+    "description": "Long-Fiber Washi Paper",
+    "priceEach": 33.33,
+    "fiveCopies": 30.0,
+    "multiplier": 15.0
+  },
+  {
+    "paperType": "Canson Baryta Photographique II",
+    "paperWeight": "345 gsm",
+    "description": "100% Acid-Free Cellulose, Barium Sulfate, Clay-Coated, Smooth, Bright White, Gloss: Amazing Color & Durability",
+    "priceEach": 30.0,
+    "fiveCopies": 27.0,
+    "multiplier": 12.25
+  },
+  {
+    "paperType": "Epson Smooth Luster ",
+    "paperWeight": "280 gsm",
+    "description": "Standard Luster (Semi-Gloss) Photo Paper",
+    "priceEach": 21.11,
+    "fiveCopies": 19.0,
+    "multiplier": 9.5
+  },
+  {
+    "paperType": "Heavyweight Matte Poster - Bright White, Acid-Free",
+    "paperWeight": "230 gsm",
+    "description": "Posters & Graphics",
+    "priceEach": 21.11,
+    "fiveCopies": 19.0,
+    "multiplier": 9.5
+  },
+  {
+    "paperType": "Phototex Wallcovering (Repositionable, Adhesive-Backed) 24” or 42” Wide Sections",
+    "paperWeight": "",
+    "description": "Photo Murals - Signage",
+    "priceEach": 27.22,
+    "fiveCopies": 24.5,
+    "multiplier": 12.25
+  }
+]

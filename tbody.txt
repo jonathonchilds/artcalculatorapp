@@ -1,0 +1,40 @@
+<tbody>
+          <tr>
+            <td className="border-r border-b p-4">
+              Hahnemühle Photo Rag Ultra Smooth
+            </td>
+            <td className="border-r border-b p-4">305 gsm</td>
+            <td className="border-r border-b p-4">
+              Smooth Matte Finish - Hot Press
+            </td>
+            <td className="border-r border-b p-4">$45.56</td>
+            <td className="border-r border-b p-4">$41.00</td>
+            <td className="border-b border-r p-5">
+              <span className="flex ">
+                <FiEdit2 className="text-2xl mx-1" />
+                <BsTrash className="text-2xl mx-1" />
+                <AiOutlineEye className="text-2xl mx-1" />
+                <AiOutlineEyeInvisible className="text-2xl mx-1" />
+              </span>
+            </td>
+            <td className="border-r border-b p-4">20.50</td>
+          </tr>
+          <tr>
+            <td className="border-r p-2">
+              Hahnemühle William Turner Watercolor
+            </td>
+            <td className="border-r p-4">308 gsm</td>
+            <td className="border-r p-4">Mould-Made - Textured - Cold Press</td>
+            <td className="border-r p-4">$45.56</td>
+            <td className="border-r p-4">$41.00</td>
+            <td className="border-r p-5">
+              <span className="flex ">
+                <FiEdit2 className="text-2xl mx-1" />
+                <BsTrash className="text-2xl mx-1" />
+                <AiOutlineEye className="text-2xl mx-1" />
+                <AiOutlineEyeInvisible className="text-2xl mx-1" />
+              </span>
+            </td>
+            <td className="border-r p-4">20.50</td>
+          </tr>
+        </tbody>
