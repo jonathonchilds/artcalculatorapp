@@ -13,19 +13,27 @@ const Home = () => {
   const [borderWidth, setBorderWidth] = useState(0);
   const [borderHeight, setBorderHeight] = useState(0);
 
-  const cellBorder = "border-r border-t p-4 text-center";
-  const iconStyling = "text-2xl mx-1";
+  // had to add parsefloat because it was concatenating the strings instead of adding the numbers! Even though state is set to a number,
+  // it was still a string when it was being used in the calculation. I.e., 1 + 0 = 10 instead of 1 + 0 = 1
+  // discovered while testing various conditions in the calculator: decimals, 0, etc.
+  // not using reg. exp. checking for now, but may need to add later (supplied spreadsheet doesn't have validation)
+  // I was rounding the width's and heights before supplying the values for finalSheetSize, but the supplied spreadsheet rounds up at the finalSheetSize calculation
+  const finalWidth = parseFloat(imageWidth) + parseFloat(borderWidth * 2);
+  const finalHeight = parseFloat(imageHeight) + parseFloat(borderHeight * 2);
 
-  const multiplier = 20.5;
-  const finalWidth = Math.ceil(imageWidth) + Math.ceil(borderWidth) * 2;
-  const finalHeight = Math.ceil(imageHeight) + Math.ceil(borderHeight) * 2;
-  const finalSheetSize = finalWidth * finalHeight;
-  const priceEachPiece = roundToTwo((finalSheetSize / 144) * multiplier);
-  const priceFiveCopies = roundToTwo(priceEachPiece * 0.9);
+  const finalSheetSize = Math.ceil(finalWidth) * Math.ceil(finalHeight);
+
+  function calculatePriceEach(finalSheetSize, multiplier) {
+    const priceEach = roundToTwo((finalSheetSize / 144) * multiplier);
+    return priceEach;
+  }
 
   function roundToTwo(num) {
     return +(Math.round(num + "e+2") + "e-2");
   }
+
+  const cellBorder = "border-r border-t p-4 text-center";
+  const iconStyling = "text-2xl mx-1";
 
   return (
     <section className="w-full flex-center flex-col">
@@ -45,18 +53,22 @@ const Home = () => {
             (Sheet sizes will be rounded up to the next whole number)
           </p>
           <div className="flex flex-col">
+            <label className="text-center text-xs text-gray-600">
+              Image Width
+            </label>
             <input
               type="number"
-              placeholder="Image Width"
-              className="rounded-xl p-4 m-2 text-center "
+              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center "
               onChange={(e) => {
                 setImageWidth(e.target.value);
               }}
             />
+            <label className="text-center text-xs text-gray-600">
+              Image Height
+            </label>
             <input
               type="number"
-              placeholder="Image Height"
-              className="rounded-xl p-4 m-2 text-center"
+              className="rounded-xl p-4 my-3 mt-1 text-center"
               onChange={(e) => {
                 setImageHeight(e.target.value);
               }}
@@ -70,18 +82,24 @@ const Home = () => {
           </h2>
           <p className="pb-4 h-[64px] text-center text-gray-600">(Per Side)</p>
           <div className="flex flex-col">
+            <label className="text-center text-xs text-gray-600">
+              Border Width
+            </label>
             <input
               type="number"
-              placeholder="Border Width"
-              className="rounded-xl p-4 m-2 text-center "
+              inputMode="numeric"
+              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center "
               onChange={(e) => {
                 setBorderWidth(e.target.value);
               }}
             />
+            <label className="text-center text-xs text-gray-600">
+              Border Height
+            </label>
             <input
               type="number"
-              placeholder="Border Height"
-              className="rounded-xl p-4 m-2 text-center"
+              inputMode="numeric"
+              className="rounded-xl p-4 my-3 mt-1 text-center"
               onChange={(e) => {
                 setBorderHeight(e.target.value);
               }}
@@ -92,7 +110,7 @@ const Home = () => {
       <div className="mb-10 sm:mx-4 border w-72 h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
         <h2 className="text-center font-bold text-xl p-2">Final Sheet Size</h2>
         <p className="p-2 text-center text-2xl">
-          {finalWidth} x {finalHeight}{" "}
+          {finalWidth} x {finalHeight}
         </p>
       </div>
       <p className="mb-4 text-center text-sm sm:w-[38rem] text-gray-600">
@@ -121,6 +139,12 @@ const Home = () => {
           </thead>
           <tbody>
             {data.map((data, idx) => {
+              const priceEach = calculatePriceEach(
+                finalSheetSize,
+                data.multiplier
+              );
+              const priceFiveCopies = roundToTwo(priceEach * 0.9);
+
               return (
                 <tr key={idx}>
                   <td className={`${cellBorder}`}>{data.paperType}</td>
@@ -128,8 +152,10 @@ const Home = () => {
                     {data.paperWeight}
                   </td>
                   <td className={`${cellBorder}`}>{data.description}</td>
-                  <td className={`${cellBorder}`}>${data.priceEach}</td>
-                  <td className={`${cellBorder}`}>${data.fiveCopies}</td>
+                  <td className={`${cellBorder}`}>${priceEach.toFixed(2)}</td>
+                  <td className={`${cellBorder}`}>
+                    ${priceFiveCopies.toFixed(2)}
+                  </td>
                   <td className={`${cellBorder}`}>
                     <span className="flex">
                       <FiEdit2 className={`${iconStyling}`} />
