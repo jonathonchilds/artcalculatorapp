@@ -42,10 +42,9 @@ const Home = () => {
         Use this calculator for non-standard sizes and/or to compare different
         paper selections.
       </p>
-
       <div className="flex sm:flex-between sm:mx-4 mb-[14px] flex-wrap justify-center ">
         {/* image size container */}
-        <div className="mb-4 sm:mx-4 w-72 h-auto border rounded-xl p-2 shadow-lg">
+        <div className="mb-4 sm:mx-4 w-72 h-auto border rounded-xl p-2 shadow-xl">
           <h2 className="pb-2 text-center font-bold text-lg">
             Enter Image Size
           </h2>
@@ -76,7 +75,7 @@ const Home = () => {
           </div>
         </div>
         {/* border container */}
-        <div className="mb-4 sm:mx-4 border w-72 h-auto rounded-xl p-2 min-h-max shadow-lg">
+        <div className="mb-4 sm:mx-4 border w-72 h-auto rounded-xl p-2 min-h-max shadow-xl">
           <h2 className="pb-2 text-center font-bold text-lg">
             Enter Border Size
           </h2>
@@ -107,19 +106,24 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="mb-10 sm:mx-4 border w-72 h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
+      <div className="mb-10 sm:mx-4 border w-72 h-auto rounded-xl justify-center flex flex-col shadow-xl  p-2 min-h-max">
         <h2 className="text-center font-bold text-xl p-2">Final Sheet Size</h2>
-        <p className="p-2 text-center text-2xl">
+        <p className="p-2 text-center text-lg">
           {finalWidth} x {finalHeight}
         </p>
       </div>
-      <p className="mb-4 text-center text-sm sm:w-[38rem] text-gray-600">
+      <p className="mb-4 text-center text-md sm:w-[38rem]">
         All Fine Art Papers are 100% archival cotton rag without optical
         brightening agents or additives, printed with 12-color pigmented inks.
-        Longevity tests estimate lightfastness for 100+ years. More details are
-        on price list or online store.
       </p>
-      <div className="border rounded-lg shadow-xl m-10">
+      <p className="mb-4 text-center text-md sm:w-[38rem]">
+        Longevity tests estimate lightfastness for 100+ years.
+      </p>{" "}
+      <p className="mb-4 text-center text-md sm:w-[38rem]">
+        {" "}
+        More details are on price list or online store.
+      </p>
+      <div className="border-2 rounded-lg shadow-2xl m-10">
         <table>
           <thead>
             <tr className="border-b">
@@ -148,9 +152,7 @@ const Home = () => {
               return (
                 <tr key={idx}>
                   <td className={`${cellBorder}`}>{data.paperType}</td>
-                  <td className={`${cellBorder} text-gray-600`}>
-                    {data.paperWeight}
-                  </td>
+                  <td className={`${cellBorder}`}>{data.paperWeight}</td>
                   <td className={`${cellBorder}`}>{data.description}</td>
                   <td className={`${cellBorder}`}>${priceEach.toFixed(2)}</td>
                   <td className={`${cellBorder}`}>

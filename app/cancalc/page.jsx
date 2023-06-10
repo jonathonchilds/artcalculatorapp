@@ -6,43 +6,42 @@ const canCalc = () => {
   const [imageWidth, setImageWidth] = useState(0);
   const [imageHeight, setImageHeight] = useState(0);
 
-  const printOnlyMultiplier = 16.75;
+  const printMultiplier = 16.75;
   const stretchedStandardFramingDepthMultiplier = 1.2;
   const stretchedStandardGalleryWrapMultiplier = 1.34;
   const stretchedDeepGalleryWrapMultiplier = 1.62;
   const handAppliedTexturizingBrushstrokesMultiplier = 15.0;
 
+  const width = parseFloat(imageWidth);
+  const height = parseFloat(imageHeight);
+
   const unstretchedTwoInchBorder =
-    (((parseFloat(imageWidth) + 4) * (parseFloat(imageHeight) + 4)) / 144) *
-    printOnlyMultiplier;
+    (((width + 4) * (height + 4)) / 144) * printMultiplier;
   const unstretchedThreeInchBorder =
-    (((parseFloat(imageWidth) + 6) * (parseFloat(imageHeight) + 6)) / 144) *
-    printOnlyMultiplier;
+    (((width + 6) * (height + 6)) / 144) * printMultiplier;
 
   const stretchedStandardFramingDepth =
     unstretchedTwoInchBorder +
-    (parseFloat(imageWidth) + parseFloat(imageHeight)) *
-      stretchedStandardFramingDepthMultiplier;
+    (width + height) * stretchedStandardFramingDepthMultiplier;
   const stretchedStandardGalleryWrap =
     unstretchedTwoInchBorder +
-    (parseFloat(imageWidth) + parseFloat(imageHeight)) *
-      stretchedStandardGalleryWrapMultiplier;
+    (width + height) * stretchedStandardGalleryWrapMultiplier;
   const stretchedDeepGalleryWrap =
     unstretchedThreeInchBorder +
-    (parseFloat(imageWidth) + parseFloat(imageHeight)) *
-      stretchedDeepGalleryWrapMultiplier;
+    (width + height) * stretchedDeepGalleryWrapMultiplier;
 
   const handAppliedTexturizingBrushstrokes =
-    ((parseFloat(imageWidth) * parseFloat(imageHeight)) / 144) *
-    parseFloat(handAppliedTexturizingBrushstrokesMultiplier);
+    ((width * height) / 144) * handAppliedTexturizingBrushstrokesMultiplier;
 
   function roundToTwo(num) {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
+  const borders = "border rounded-xl m-2";
+
   return (
-    <section>
-      <h1 className="head_text text-center">Canvas Calculator?</h1>
+    <section className="mb-16">
+      <h1 className="head_text text-center">Canvas Calculator</h1>
       <p className="sm:my-12 my-4 text-center text-gray-600">
         Chromata LYVE by Breathing Color is the best fine art, archival canvas
         available for printmaking on the market. Chromata LYVE is a 20.5 mil
@@ -82,67 +81,70 @@ const canCalc = () => {
       <div className="flex sm:flex-between sm:mx-4 mb-[14px] flex-wrap justify-center">
         <div className="mb-10 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
           <div>
-            <h2 className="text-center font-bold text-xl p-2">
+            <h2 className="text-center font-bold text-lg p-2">
               Print Only (Rolled)
             </h2>
           </div>
-          <div className="flex">
-            <div>
-              <h3 className="text-center font-bold text-lg p-2">
-                Unstretched w/ 2" Border
-              </h3>
-              <p className="p-2 text-center text-2xl">
-                ${roundToTwo(unstretchedTwoInchBorder)}
+          <div className="flex ">
+            <div className={`${borders}`}>
+              <p className="text-center p-2">Unstretched w/ 2" Border</p>
+              <p className="p-2 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `${roundToTwo(unstretchedTwoInchBorder)}`
+                  : "$0.00"}
               </p>
             </div>
-            <div>
-              <h3 className="text-center font-bold text-lg p-2">
-                Unstretched w/ 3" Border
-              </h3>
-              <p className="p-2 text-center text-2xl">
-                ${roundToTwo(unstretchedThreeInchBorder)}
+            <div className={`${borders}`}>
+              <p className="text-center p-2">Unstretched w/ 3" Border</p>
+              <p className="p-2 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `${roundToTwo(unstretchedThreeInchBorder)}`
+                  : "$0.00"}
               </p>
             </div>
           </div>
         </div>
         <div className="mb-10 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
           <div>
-            <h2 className="text-center font-bold text-xl p-2">
-              Stretched Options (Ready to Hang or Frame - with stretcher bar)
+            <h2 className="text-center font-bold text-lg p-2">
+              Stretched Options - ready to hang or frame (includes stretcher
+              bar)
             </h2>
           </div>
           <div className="flex">
-            <div>
-              <h3 className="text-center font-bold text-lg p-2">
-                Standard Framing Depth
-              </h3>
-              <p className="p-2 text-center text-2xl">
-                ${roundToTwo(stretchedStandardFramingDepth)}
+            <div className={`${borders}`}>
+              <p className="text-center p-2">Standard Framing Depth</p>
+              <p className="p-2 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `${roundToTwo(stretchedStandardFramingDepth)}`
+                  : "$0.00"}
               </p>
             </div>
-            <div>
-              <h3 className="text-center font-bold text-lg p-2">
-                Standard Gallery Wrap
-              </h3>
-              <p className="p-2 text-center text-2xl">
-                ${roundToTwo(stretchedStandardGalleryWrap)}
+            <div className={`${borders}`}>
+              <p className="text-center p-2">Standard Gallery Wrap</p>
+              <p className="p-2 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `${roundToTwo(stretchedStandardGalleryWrap)}`
+                  : "$0.00"}
               </p>
             </div>
-            <div>
-              <h3 className="text-center font-bold text-lg p-2">
-                Deep Gallery Wrap
-              </h3>
-              <p className="p-2 text-center text-2xl">
-                ${roundToTwo(stretchedDeepGalleryWrap)}
+            <div className={`${borders}`}>
+              <p className="text-center p-2">Deep Gallery Wrap</p>
+              <p className="p-2 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `${roundToTwo(stretchedDeepGalleryWrap)}`
+                  : "$0.00"}
               </p>
             </div>
-            <div>
-              <h3 className="text-center font-bold text-lg p-2">
+            <div className={`${borders}`}>
+              <p className="text-center p-2">
                 Add for hand-applied, texturizing brushstrokes. <br /> (3D
                 realistic feel of a real painting on canvas)
-              </h3>
-              <p className="p-2 text-center text-2xl">
-                ${roundToTwo(handAppliedTexturizingBrushstrokes)}
+              </p>
+              <p className="p-2 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `${roundToTwo(handAppliedTexturizingBrushstrokes)}`
+                  : "$0.00"}
               </p>
             </div>
           </div>
