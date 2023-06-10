@@ -6,25 +6,35 @@ const canCalc = () => {
   const [imageWidth, setImageWidth] = useState(0);
   const [imageHeight, setImageHeight] = useState(0);
 
+  const printOnlyMultiplier = 16.75;
+  const stretchedStandardFramingDepthMultiplier = 1.2;
+  const stretchedStandardGalleryWrapMultiplier = 1.34;
+  const stretchedDeepGalleryWrapMultiplier = 1.62;
+  const handAppliedTexturizingBrushstrokesMultiplier = 15.0;
+
   const unstretchedTwoInchBorder =
     (((parseFloat(imageWidth) + 4) * (parseFloat(imageHeight) + 4)) / 144) *
-    16.75;
+    printOnlyMultiplier;
   const unstretchedThreeInchBorder =
     (((parseFloat(imageWidth) + 6) * (parseFloat(imageHeight) + 6)) / 144) *
-    16.75;
+    printOnlyMultiplier;
 
   const stretchedStandardFramingDepth =
     unstretchedTwoInchBorder +
-    (parseFloat(imageWidth) + parseFloat(imageHeight)) * 1.2;
+    (parseFloat(imageWidth) + parseFloat(imageHeight)) *
+      stretchedStandardFramingDepthMultiplier;
   const stretchedStandardGalleryWrap =
     unstretchedTwoInchBorder +
-    (parseFloat(imageWidth) + parseFloat(imageHeight)) * 1.34;
+    (parseFloat(imageWidth) + parseFloat(imageHeight)) *
+      stretchedStandardGalleryWrapMultiplier;
   const stretchedDeepGalleryWrap =
     unstretchedThreeInchBorder +
-    (parseFloat(imageWidth) + parseFloat(imageHeight)) * 1.62;
+    (parseFloat(imageWidth) + parseFloat(imageHeight)) *
+      stretchedDeepGalleryWrapMultiplier;
 
   const handAppliedTexturizingBrushstrokes =
-    ((parseFloat(imageWidth) + parseFloat(imageHeight)) / 144) * 15;
+    ((parseFloat(imageWidth) * parseFloat(imageHeight)) / 144) *
+    parseFloat(handAppliedTexturizingBrushstrokesMultiplier);
 
   function roundToTwo(num) {
     return +(Math.round(num + "e+2") + "e-2");
@@ -128,11 +138,11 @@ const canCalc = () => {
             </div>
             <div>
               <h3 className="text-center font-bold text-lg p-2">
-                Add for hand-applied, texturizing brushstrokes. (3D realistic
-                feel of a real painting on canvas)
+                Add for hand-applied, texturizing brushstrokes. <br /> (3D
+                realistic feel of a real painting on canvas)
               </h3>
               <p className="p-2 text-center text-2xl">
-                ${roundToTwo(stretchedDeepGalleryWrap)}
+                ${roundToTwo(handAppliedTexturizingBrushstrokes)}
               </p>
             </div>
           </div>
