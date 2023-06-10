@@ -6,12 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "api": "node api/index.js",
     "lint": "next lint"
   },
   "dependencies": {
     "@tanstack/react-table": "^8.9.1",
     "autoprefixer": "10.4.14",
+    "express": "^4.18.2",
     "next": "13.4.4",
+    "nodejs": "^0.0.0",
+    "pg": "^8.11.0",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
