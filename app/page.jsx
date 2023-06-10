@@ -18,8 +18,8 @@ const Home = () => {
   // discovered while testing various conditions in the calculator: decimals, 0, etc.
   // not using reg. exp. checking for now, but may need to add later (supplied spreadsheet doesn't have validation)
   // I was rounding the width's and heights before supplying the values for finalSheetSize, but the supplied spreadsheet rounds up at the finalSheetSize calculation
-  const finalWidth = parseFloat(imageWidth) + parseFloat(borderWidth * 2);
-  const finalHeight = parseFloat(imageHeight) + parseFloat(borderHeight * 2);
+  const finalWidth = +imageWidth + +borderWidth * 2;
+  const finalHeight = +imageHeight + +borderHeight * 2;
 
   const finalSheetSize = Math.ceil(finalWidth) * Math.ceil(finalHeight);
 
@@ -89,7 +89,7 @@ const Home = () => {
               inputMode="numeric"
               className="rounded-xl p-4 my-3 mb-5 mt-1 text-center "
               onChange={(e) => {
-                setBorderWidth(e.target.value);
+                setBorderWidth(e.target.valueAsNumber);
               }}
             />
             <label className="text-center text-xs text-gray-600">
@@ -100,7 +100,7 @@ const Home = () => {
               inputMode="numeric"
               className="rounded-xl p-4 my-3 mt-1 text-center"
               onChange={(e) => {
-                setBorderHeight(e.target.value);
+                setBorderHeight(e.target.valueAsNumber);
               }}
             />
           </div>

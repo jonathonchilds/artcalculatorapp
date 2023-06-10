@@ -10,7 +10,7 @@ const Nav = () => {
   const isUserLoggedIn = true;
 
   const pageButtons =
-    "rounded-full border border-black w-60 h-20 py-1.5 px-5 transition-all hover:bg-black hover:text-white text-center text-lg font-semibold flex items-center justify-center ";
+    "rounded-full shadow-lg border border-black w-60 h-20 py-1.5 px-5 transition-all hover:bg-black hover:text-white text-center text-lg font-semibold flex items-center justify-center ";
 
   return (
     <nav className="flex flex-col w-full pt-3">
@@ -33,7 +33,11 @@ const Nav = () => {
         <div>
           {isUserLoggedIn ? (
             <div className="flex gap-3 md:gap-5">
-              <button type="button" onClick={() => {}} className="outline_btn">
+              <button
+                type="button"
+                onClick={() => {}}
+                className="outline_btn shadow-lg"
+              >
                 Sign Out
               </button>
             </div>
