@@ -1,3 +1,6 @@
+// TODO:
+// Fix borders on the table for when rendered for islogged in user true or false; i.e., 5+ copies shows the right border, creating protruding line at the top right corner
+
 "use client";
 
 import { FiEdit2 } from "react-icons/fi";
@@ -34,6 +37,8 @@ const Home = () => {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
+  const isUserLoggedIn = false;
+
   const cellBorder = "border-r border-t p-4 text-center";
   const iconStyling = "text-2xl mx-1";
 
@@ -59,7 +64,7 @@ const Home = () => {
             </label>
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center "
+              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center border-2 "
               onChange={(e) => {
                 setImageWidth(e.target.value);
               }}
@@ -69,7 +74,7 @@ const Home = () => {
             </label>
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mt-1 text-center"
+              className="rounded-xl p-4 my-3 mt-1 text-center border-2"
               onChange={(e) => {
                 setImageHeight(e.target.value);
               }}
@@ -89,7 +94,7 @@ const Home = () => {
             <input
               type="number"
               inputMode="numeric"
-              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center "
+              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center border-2 "
               onChange={(e) => {
                 setBorderWidth(e.target.valueAsNumber);
               }}
@@ -100,7 +105,7 @@ const Home = () => {
             <input
               type="number"
               inputMode="numeric"
-              className="rounded-xl p-4 my-3 mt-1 text-center"
+              className="rounded-xl p-4 my-3 mt-1 text-center border-2"
               onChange={(e) => {
                 setBorderHeight(e.target.valueAsNumber);
               }}
@@ -125,7 +130,7 @@ const Home = () => {
         {" "}
         More details are on price list or online store.
       </p>
-      <div className="border-2 rounded-lg shadow-2xl m-10">
+      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:block hidden ">
         <table>
           <thead>
             <tr className="border-b">
@@ -139,8 +144,12 @@ const Home = () => {
 
               <th className="border-r sm:p-2">Each</th>
               <th className="border-r sm:p-2">5+ Copies</th>
-              <th className="border-r sm:p-2">Actions</th>
-              <th className="p-2">Multiplier</th>
+              {isUserLoggedIn ? (
+                <th className="border-r sm:p-2">Actions</th>
+              ) : (
+                ""
+              )}
+              {isUserLoggedIn ? <th className="p-2">Multiplier</th> : ""}
             </tr>
           </thead>
           <tbody>
@@ -150,7 +159,6 @@ const Home = () => {
                 data.multiplier
               );
               const priceFiveCopies = roundToTwo(priceEach * 0.9);
-
               return (
                 <tr key={idx}>
                   <td className={`${cellBorder}`}>{data.paperType}</td>
@@ -160,22 +168,67 @@ const Home = () => {
                   <td className={`${cellBorder}`}>
                     ${priceFiveCopies.toFixed(2)}
                   </td>
-                  <td className={`${cellBorder}`}>
-                    <span className="flex">
-                      <FiEdit2 className={`${iconStyling}`} />
-                      <BsTrash className={`${iconStyling}`} />
-                      <AiOutlineEye className={`${iconStyling}`} />
-                      <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                    </span>
-                  </td>
-                  <td className="border-t p-4 text-center">
-                    {data.multiplier}
-                  </td>
+                  {isUserLoggedIn ? (
+                    <td className={`${cellBorder}`}>
+                      <span className="flex">
+                        <FiEdit2 className={`${iconStyling}`} />
+                        <BsTrash className={`${iconStyling}`} />
+                        <AiOutlineEye className={`${iconStyling}`} />
+                        <AiOutlineEyeInvisible className={`${iconStyling}`} />
+                      </span>
+                    </td>
+                  ) : (
+                    ""
+                  )}
+                  {isUserLoggedIn ? (
+                    <td className="border-t p-4 text-center">
+                      {data.multiplier}
+                    </td>
+                  ) : (
+                    ""
+                  )}
                 </tr>
               );
             })}
           </tbody>
         </table>
+      </div>
+      <div className="sm:hidden">
+        {data.map((data, idx) => {
+          const priceEach = calculatePriceEach(finalSheetSize, data.multiplier);
+          const priceFiveCopies = roundToTwo(priceEach * 0.9);
+          return (
+            <div
+              key={idx}
+              className="border-2 border-slate-600 my-12 h-auto rounded-lg p-10"
+            >
+              <h2 className="font-bold text-center pb-4 text-2xl">
+                {data.paperType}
+              </h2>
+              <p className="text-center pb-1 text-lg">{data.paperWeight}</p>
+              <p className="text-center pb-6 text-lg">{data.description}</p>
+              <p className="text-center pb-3 font-semibold text-xl">
+                Each: ${priceEach.toFixed(2)}
+              </p>
+              <p className="text-center font-semibold text-xl">
+                5+ Copies: ${priceFiveCopies.toFixed(2)}
+              </p>
+              {isUserLoggedIn && (
+                <div className="my-6">
+                  <div className="flex justify-between">
+                    <FiEdit2 className={`${iconStyling}`} />
+                    <BsTrash className={`${iconStyling}`} />
+                    <AiOutlineEye className={`${iconStyling}`} />
+                    <AiOutlineEyeInvisible className={`${iconStyling}`} />
+                  </div>
+                  <p className="text-center mt-6">
+                    Multiplier: {data.multiplier}
+                  </p>{" "}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );
