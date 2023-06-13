@@ -90,7 +90,7 @@ const canCalc = () => {
               <p className="text-center p-2">Unstretched w/ 2" Border</p>
               <p className="p-2 text-center text-xl">
                 {imageHeight && imageWidth
-                  ? `${roundToTwo(unstretchedTwoInchBorder)}`
+                  ? `$${roundToTwo(unstretchedTwoInchBorder)}`
                   : "$0.00"}
               </p>
             </div>
@@ -98,7 +98,7 @@ const canCalc = () => {
               <p className="text-center p-2">Unstretched w/ 3" Border</p>
               <p className="p-2 text-center text-xl">
                 {imageHeight && imageWidth
-                  ? `${roundToTwo(unstretchedThreeInchBorder)}`
+                  ? `$${roundToTwo(unstretchedThreeInchBorder)}`
                   : "$0.00"}
               </p>
             </div>
@@ -116,7 +116,7 @@ const canCalc = () => {
               <p className="text-center p-2">Standard Framing Depth</p>
               <p className="p-2 text-center text-xl">
                 {imageHeight && imageWidth
-                  ? `${roundToTwo(stretchedStandardFramingDepth)}`
+                  ? `$${roundToTwo(stretchedStandardFramingDepth)}`
                   : "$0.00"}
               </p>
             </div>
@@ -124,7 +124,7 @@ const canCalc = () => {
               <p className="text-center p-2">Standard Gallery Wrap</p>
               <p className="p-2 text-center text-xl">
                 {imageHeight && imageWidth
-                  ? `${roundToTwo(stretchedStandardGalleryWrap)}`
+                  ? `$${roundToTwo(stretchedStandardGalleryWrap)}`
                   : "$0.00"}
               </p>
             </div>
@@ -132,7 +132,7 @@ const canCalc = () => {
               <p className="text-center p-2">Deep Gallery Wrap</p>
               <p className="p-2 text-center text-xl">
                 {imageHeight && imageWidth
-                  ? `${roundToTwo(stretchedDeepGalleryWrap)}`
+                  ? `$${roundToTwo(stretchedDeepGalleryWrap)}`
                   : "$0.00"}
               </p>
             </div>
@@ -143,7 +143,7 @@ const canCalc = () => {
               </p>
               <p className="p-2 text-center text-xl">
                 {imageHeight && imageWidth
-                  ? `${roundToTwo(handAppliedTexturizingBrushstrokes)}`
+                  ? `$${roundToTwo(handAppliedTexturizingBrushstrokes)}`
                   : "$0.00"}
               </p>
             </div>

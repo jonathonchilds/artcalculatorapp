@@ -18,6 +18,8 @@ const Home = () => {
   // discovered while testing various conditions in the calculator: decimals, 0, etc.
   // not using reg. exp. checking for now, but may need to add later (supplied spreadsheet doesn't have validation)
   // I was rounding the width's and heights before supplying the values for finalSheetSize, but the supplied spreadsheet rounds up at the finalSheetSize calculation
+  //
+  //INTRODUCING.. The unary plus operator!!! (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus)
   const finalWidth = +imageWidth + +borderWidth * 2;
   const finalHeight = +imageHeight + +borderHeight * 2;
 
