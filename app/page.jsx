@@ -41,6 +41,7 @@ const Home = () => {
 
   const cellBorder = "border-r border-t p-4 text-center";
   const iconStyling = "text-2xl mx-1";
+  const tableHeadings = "border-r p-6";
 
   return (
     <section className="w-full flex-center flex-col">
@@ -130,22 +131,22 @@ const Home = () => {
         {" "}
         More details are on price list or online store.
       </p>
-      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:block hidden ">
+      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:inline hidden ">
         <table>
           <thead>
             <tr className="border-b">
-              <th className="border-r sm:p-2">
+              <th className={`${tableHeadings}`}>
                 Archival Fine Art Papers (Giclee)
                 <br />
                 (100% cotton rag unless otherwise noted)
               </th>
-              <th className="border-r sm:p-2">Paper Weight</th>
-              <th className="border-r sm:p-2">Description</th>
+              <th className={`${tableHeadings}`}>Paper Weight</th>
+              <th className={`${tableHeadings}`}>Description</th>
 
-              <th className="border-r sm:p-2">Each</th>
-              <th className="border-r sm:p-2">5+ Copies</th>
+              <th className={`${tableHeadings}`}>Each</th>
+              <th className={`${tableHeadings}`}>5+ Copies</th>
               {isUserLoggedIn ? (
-                <th className="border-r sm:p-2">Actions</th>
+                <th className={`${tableHeadings}`}>Actions</th>
               ) : (
                 ""
               )}
