@@ -5,6 +5,7 @@ import { IoLocationOutline } from "react-icons/io5";
 
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
 
 const Nav = () => {
   const isUserLoggedIn = true;

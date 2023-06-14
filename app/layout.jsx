@@ -1,5 +1,6 @@
 import Nav from "@components/Nav";
 import "@styles/globals.css";
+import React from "react";
 
 export const metadata = {
   title: "Print Cost Calculator",
