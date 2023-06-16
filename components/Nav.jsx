@@ -7,10 +7,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Nav = () => {
-  const isUserLoggedIn = true;
+  const isUserLoggedIn = false;
 
   const pageButtons =
-    "rounded-full shadow-lg border border-black w-60 h-20 py-1.5 px-5 transition-all hover:bg-black hover:text-white text-center text-lg font-semibold flex items-center justify-center ";
+    "rounded-full shadow-lg border border-black w-60 h-20 py-1.5 px-5 text-center text-lg font-semibold flex items-center justify-center ";
 
   return (
     <nav className="flex flex-col w-full pt-3">
@@ -28,7 +28,7 @@ const Nav = () => {
         <div className="sm:flex hidden">
           <IoLocationOutline className="text-xl ml-2 mr-1" /> 1082 Huff Rd NW B
           Atlanta, GA 30318 | <AiOutlinePhone className="text-xl ml-2 mr-1" />{" "}
-          (404) 905-2451
+          866-352-9779
         </div>
         <div>
           {isUserLoggedIn ? (
@@ -36,7 +36,7 @@ const Nav = () => {
               <button
                 type="button"
                 onClick={() => {}}
-                className="outline_btn shadow-lg"
+                className="outline_btn shadow-lg hover:bg-black hover:text-white"
               >
                 Sign Out
               </button>
