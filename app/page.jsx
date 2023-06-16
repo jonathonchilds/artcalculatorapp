@@ -66,7 +66,7 @@ const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">Print Cost Calculator</h1>
-      <p className="sm:my-12 my-4 text-center text-gray-600">
+      <p className="sm:my-12 my-10 text-center text-gray-600">
         Use this calculator for non-standard sizes and/or to compare different
         paper selections.
       </p>
