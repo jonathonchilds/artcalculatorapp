@@ -10,7 +10,7 @@ const Nav = () => {
   const isUserLoggedIn = false;
 
   const pageButtons =
-    "rounded-full shadow-lg border border-black w-60 h-20 py-1.5 px-5 text-center text-lg font-semibold flex items-center justify-center ";
+    "rounded-full shadow-lg border border-black w-60 h-20 py-1.5 px-5 hover:bg-slate-700 hover:text-white transition-all text-center text-lg font-semibold flex items-center justify-center ";
 
   return (
     <nav className="flex flex-col w-full pt-3">

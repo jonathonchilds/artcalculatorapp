@@ -62,7 +62,7 @@ const canCalc = () => {
             </label>
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center "
+              className="rounded-xl p-4 my-3 mb-5 mt-1 border-2 text-center "
               onChange={(e) => {
                 setImageWidth(e.target.value);
               }}
@@ -72,7 +72,7 @@ const canCalc = () => {
             </label>
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mt-1 text-center"
+              className="rounded-xl p-4 my-3 mt-1 border-2 text-center"
               onChange={(e) => {
                 setImageHeight(e.target.value);
               }}
