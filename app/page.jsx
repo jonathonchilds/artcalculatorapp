@@ -6,15 +6,35 @@
 import { FiEdit2 } from "react-icons/fi";
 import { BsTrash } from "react-icons/bs";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useState } from "react";
-
-import data from "../priceCalculatorData.json";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const [imageWidth, setImageWidth] = useState(0);
   const [imageHeight, setImageHeight] = useState(0);
   const [borderWidth, setBorderWidth] = useState(0);
   const [borderHeight, setBorderHeight] = useState(0);
+  const [fineArtPapers, setFineArtPapers] = useState([]);
+  const [photoQualityPapers, setPhotoQualityPapers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/data")
+      .then((response) => response.json())
+      .then((data) => {
+        const fineArtPapers = data.filter(
+          (paper) => paper.category === "Fine Art"
+        );
+        const photoQualityPapers = data.filter(
+          (paper) => paper.category === "Photo"
+        );
+        setFineArtPapers(fineArtPapers);
+        setPhotoQualityPapers(photoQualityPapers);
+        setIsLoading(false);
+      })
+      .catch((error) => console.error("Error fetching data: ", error));
+  }, []);
+
+  console.log("fine art papers: ", fineArtPapers);
 
   // had to add parsefloat because it was concatenating the strings instead of adding the numbers! Even though state is set to a number,
   // it was still a string when it was being used in the calculation. I.e., 1 + 0 = 10 instead of 1 + 0 = 1
@@ -41,7 +61,7 @@ const Home = () => {
 
   const cellBorder = "border-r border-t p-4 text-center";
   const iconStyling = "text-2xl mx-1";
-  const tableHeadings = "border-r p-6";
+  const tableHeadings = "border-r border-t p-6";
 
   return (
     <section className="w-full flex-center flex-col">
@@ -132,11 +152,16 @@ const Home = () => {
         More details are on price list or online store.
       </p>
       <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:inline hidden ">
+        <span>
+          <h1 className="text-center font-bold text-2xl pt-4 pb-6">
+            Archival Fine Art Papers (Giclee)
+          </h1>
+        </span>
         <table>
           <thead>
             <tr className="border-b">
               <th className={`${tableHeadings}`}>
-                Archival Fine Art Papers (Giclee)
+                Paper Type
                 <br />
                 (100% cotton rag unless otherwise noted)
               </th>
@@ -154,60 +179,75 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((data, idx) => {
-              const priceEach = calculatePriceEach(
-                finalSheetSize,
-                data.multiplier
-              );
-              const priceFiveCopies = roundToTwo(priceEach * 0.9);
-              return (
-                <tr key={idx}>
-                  <td className={`${cellBorder}`}>{data.paperType}</td>
-                  <td className={`${cellBorder}`}>{data.paperWeight}</td>
-                  <td className={`${cellBorder}`}>{data.description}</td>
-                  <td className={`${cellBorder}`}>${priceEach.toFixed(2)}</td>
-                  <td className={`${cellBorder}`}>
-                    ${priceFiveCopies.toFixed(2)}
-                  </td>
-                  {isUserLoggedIn ? (
+            {isLoading ? (
+              <tr>
+                <td colSpan="6">
+                  <div>Loading...</div>
+                </td>
+              </tr>
+            ) : (
+              fineArtPapers.map((paper) => {
+                const priceEach = calculatePriceEach(
+                  finalSheetSize,
+                  paper.multiplier
+                );
+                const priceFiveCopies = roundToTwo(priceEach * 0.9);
+                return (
+                  <tr key={paper.id}>
+                    <td className={`${cellBorder}`}>{paper.paper_type}</td>
+                    <td className={`${cellBorder}`}>{paper.paper_weight}</td>
                     <td className={`${cellBorder}`}>
-                      <span className="flex">
-                        <FiEdit2 className={`${iconStyling}`} />
-                        <BsTrash className={`${iconStyling}`} />
-                        <AiOutlineEye className={`${iconStyling}`} />
-                        <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                      </span>
+                      {paper.paper_description}
                     </td>
-                  ) : (
-                    ""
-                  )}
-                  {isUserLoggedIn ? (
-                    <td className="border-t p-4 text-center">
-                      {data.multiplier}
+                    <td className={`${cellBorder}`}>${priceEach.toFixed(2)}</td>
+                    <td className={`${cellBorder}`}>
+                      ${priceFiveCopies.toFixed(2)}
                     </td>
-                  ) : (
-                    ""
-                  )}
-                </tr>
-              );
-            })}
+                    {isUserLoggedIn ? (
+                      <td className={`${cellBorder}`}>
+                        <span className="flex">
+                          <FiEdit2 className={`${iconStyling}`} />
+                          <BsTrash className={`${iconStyling}`} />
+                          <AiOutlineEye className={`${iconStyling}`} />
+                          <AiOutlineEyeInvisible className={`${iconStyling}`} />
+                        </span>
+                      </td>
+                    ) : (
+                      ""
+                    )}
+                    {isUserLoggedIn ? (
+                      <td className="border-t p-4 text-center">
+                        {paper.multiplier}
+                      </td>
+                    ) : (
+                      ""
+                    )}
+                  </tr>
+                );
+              })
+            )}
           </tbody>
         </table>
       </div>
       <div className="sm:hidden">
-        {data.map((data, idx) => {
-          const priceEach = calculatePriceEach(finalSheetSize, data.multiplier);
+        {fineArtPapers.map((paper) => {
+          const priceEach = calculatePriceEach(
+            finalSheetSize,
+            paper.multiplier
+          );
           const priceFiveCopies = roundToTwo(priceEach * 0.9);
           return (
             <div
-              key={idx}
+              key={paper.id}
               className="border-2 border-slate-600 my-12 h-auto rounded-lg p-10"
             >
               <h2 className="font-bold text-center pb-4 text-2xl">
-                {data.paperType}
+                {paper.paper_type}
               </h2>
-              <p className="text-center pb-1 text-lg">{data.paperWeight}</p>
-              <p className="text-center pb-6 text-lg">{data.description}</p>
+              <p className="text-center pb-1 text-lg">{paper.paper_weight}</p>
+              <p className="text-center pb-6 text-lg">
+                {paper.paper_description}
+              </p>
               <p className="text-center pb-3 font-semibold text-xl">
                 Each: ${priceEach.toFixed(2)}
               </p>
@@ -223,7 +263,123 @@ const Home = () => {
                     <AiOutlineEyeInvisible className={`${iconStyling}`} />
                   </div>
                   <p className="text-center mt-6">
-                    Multiplier: {data.multiplier}
+                    Multiplier: {paper.multiplier}
+                  </p>{" "}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:inline hidden ">
+        <span>
+          <h1 className="text-center font-bold text-2xl pt-4 pb-6">
+            Photo Quality / Display Media
+          </h1>
+        </span>
+        <table>
+          <thead>
+            <tr className="border-b">
+              <th className={`${tableHeadings}`}>Media Type</th>
+              <th className={`${tableHeadings}`}>Media Weight</th>
+              <th className={`${tableHeadings}`}>Description</th>
+
+              <th className={`${tableHeadings}`}>Each</th>
+              <th className={`${tableHeadings}`}>5+ Copies</th>
+              {isUserLoggedIn ? (
+                <th className={`${tableHeadings}`}>Actions</th>
+              ) : (
+                ""
+              )}
+              {isUserLoggedIn ? <th className="p-2">Multiplier</th> : ""}
+            </tr>
+          </thead>
+          <tbody>
+            {isLoading ? (
+              <tr>
+                <td colSpan="6">
+                  <div>Loading...</div>
+                </td>
+              </tr>
+            ) : (
+              photoQualityPapers.map((paper) => {
+                const priceEach = calculatePriceEach(
+                  finalSheetSize,
+                  paper.multiplier
+                );
+                const priceFiveCopies = roundToTwo(priceEach * 0.9);
+                return (
+                  <tr key={paper.id}>
+                    <td className={`${cellBorder}`}>{paper.paper_type}</td>
+                    <td className={`${cellBorder}`}>{paper.paper_weight}</td>
+                    <td className={`${cellBorder}`}>
+                      {paper.paper_description}
+                    </td>
+                    <td className={`${cellBorder}`}>${priceEach.toFixed(2)}</td>
+                    <td className={`${cellBorder}`}>
+                      ${priceFiveCopies.toFixed(2)}
+                    </td>
+                    {isUserLoggedIn ? (
+                      <td className={`${cellBorder}`}>
+                        <span className="flex">
+                          <FiEdit2 className={`${iconStyling}`} />
+                          <BsTrash className={`${iconStyling}`} />
+                          <AiOutlineEye className={`${iconStyling}`} />
+                          <AiOutlineEyeInvisible className={`${iconStyling}`} />
+                        </span>
+                      </td>
+                    ) : (
+                      ""
+                    )}
+                    {isUserLoggedIn ? (
+                      <td className="border-t p-4 text-center">
+                        {paper.multiplier}
+                      </td>
+                    ) : (
+                      ""
+                    )}
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
+      </div>
+      <div className="sm:hidden">
+        {photoQualityPapers.map((paper) => {
+          const priceEach = calculatePriceEach(
+            finalSheetSize,
+            paper.multiplier
+          );
+          const priceFiveCopies = roundToTwo(priceEach * 0.9);
+          return (
+            <div
+              key={paper.id}
+              className="border-2 border-slate-600 my-12 h-auto rounded-lg p-10"
+            >
+              <h2 className="font-bold text-center pb-4 text-2xl">
+                {paper.paper_type}
+              </h2>
+              <p className="text-center pb-1 text-lg">{paper.paper_weight}</p>
+              <p className="text-center pb-6 text-lg">
+                {paper.paper_description}
+              </p>
+              <p className="text-center pb-3 font-semibold text-xl">
+                Each: ${priceEach.toFixed(2)}
+              </p>
+              <p className="text-center font-semibold text-xl">
+                5+ Copies: ${priceFiveCopies.toFixed(2)}
+              </p>
+              {isUserLoggedIn && (
+                <div className="my-6">
+                  <div className="flex justify-between">
+                    <FiEdit2 className={`${iconStyling}`} />
+                    <BsTrash className={`${iconStyling}`} />
+                    <AiOutlineEye className={`${iconStyling}`} />
+                    <AiOutlineEyeInvisible className={`${iconStyling}`} />
+                  </div>
+                  <p className="text-center mt-6">
+                    Multiplier: {paper.multiplier}
                   </p>{" "}
                 </div>
               )}
