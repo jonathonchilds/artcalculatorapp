@@ -230,6 +230,11 @@ const Home = () => {
         </table>
       </div>
       <div className="sm:hidden">
+        <span>
+          <h1 className="text-center font-bold text-3xl pt-16">
+            Archival Fine Art Papers (Giclee)
+          </h1>
+        </span>
         {fineArtPapers.map((paper) => {
           const priceEach = calculatePriceEach(
             finalSheetSize,
@@ -346,6 +351,11 @@ const Home = () => {
         </table>
       </div>
       <div className="sm:hidden">
+        <span>
+          <h1 className="text-center font-bold text-3xl pt-16">
+            Photo Quality / Display Media
+          </h1>
+        </span>
         {photoQualityPapers.map((paper) => {
           const priceEach = calculatePriceEach(
             finalSheetSize,
