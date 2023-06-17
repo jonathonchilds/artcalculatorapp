@@ -1,35 +1,49 @@
-import NextAuth from "next-auth"
+// import NextAuth from "next-auth";
+// import CredentialsProvider from "next-auth/providers/credentials";
+// import mysql from "mysql";
 
-//what providers do I want to use?
+// async function verifyCredentials(email, password) {
+//   const connection = await mysql.createConnection({
+//     host: process.env.DB_HOST,
+//     port: process.env.DB_PORT,
+//     user: process.env.DB_USER,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_NAME,
+//   });
+//   const [rows] = await connection.execute(
+//     "SELECT * FROM users WHERE email = ?",
+//     [email]
+//   );
+//   if (rows.length === 0 || rows[0].password !== password) {
+//     return null;
+//   }
+//   return rows[0];
+// }
 
-  /// create .env.local file and add the following
-  // NEXTAUTH_SECRET=your_secret   (This is the secret used to sign JSON Web Tokens.)
-  //NEXTAUTH_URL=http://localhost:3000 (In production this would be your domain name)
-  //GOOGLE_CLIENT_ID=your_client_id (You can get this from the Google Developer Console - open up a new project, get the client ID and secret, and enable the Google+ API)
-  //GOOGLE_CLIENT_SECRET=your_client_secret
+// const handler = NextAuth({
+//   providers: [
+//     CredentialsProvider({
+//       name: "my-project",
+//       credentials: {
+//         email: {
+//           label: "email",
+//           type: "email",
+//           placeholder: "jsmith@example.com",
+//         },
+//         password: { label: "Password", type: "password" },
+//       },
+//       async authorize(credentials) {
+//         const user = await verifyCredentials(
+//           credentials.email,
+//           credentials.password
+//         );
+//         if (user) {
+//           return { id: user.id, email: user.email, name: user.name };
+//         }
+//         return null;
+//       },
+//     }),
+//   ],
+// });
 
-
-const handler = NextAuth({
-
-providers: [GoogleProvider({
-    clientId: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET
-  })],
-
-//    
-   // passing in pages option to nextauth options; for the sign in page I want to use this /path
-   // if you don't pass in this option, nextauth will use its default sign in page (next auth is built in with signIn, signOut, and error pages)
-   // if you wish to customize any of those pages you can include the path to those pages here so nextauth will use these pages for the specific routes, 
-   // and it will default to the built in options if you haven't specified for it here
-  // pages: {
-    // signIn: '/signin'
-  // },
-
-
-
-
-
-    ...
-})
-
-export { handler as GET, handler as POST }
+// export { handler as GET, handler as POST };

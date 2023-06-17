@@ -43,9 +43,11 @@ const Nav = () => {
             </div>
           ) : (
             <div className="flex gap-3 md:gap-5">
-              <button type="button" onClick={() => {}} className="outline_btn">
-                Admin
-              </button>
+              <Link href="/login">
+                <button type="button" className="outline_btn">
+                  Admin
+                </button>
+              </Link>
             </div>
           )}
         </div>

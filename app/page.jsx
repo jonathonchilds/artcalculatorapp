@@ -1,6 +1,3 @@
-// TODO:
-// Fix borders on the table for when rendered for islogged in user true or false; i.e., 5+ copies shows the right border, creating protruding line at the top right corner
-
 "use client";
 
 import { FiEdit2 } from "react-icons/fi";
@@ -33,8 +30,6 @@ const Home = () => {
       })
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
-
-  console.log("fine art papers: ", fineArtPapers);
 
   // had to add parsefloat because it was concatenating the strings instead of adding the numbers! Even though state is set to a number,
   // it was still a string when it was being used in the calculation. I.e., 1 + 0 = 10 instead of 1 + 0 = 1
