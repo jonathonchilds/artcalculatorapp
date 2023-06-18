@@ -1,3 +1,31 @@
+// Make admin icons actionable:
+//// add paper (with confirmation & cancel)
+//// edit paper (with confirmation & cancel)
+//// delete paper (with confirmation & cancel)
+
+// Create API endpoint for Create paper
+// Create API endpoint for Update paper
+// Create API endpoint for Delete paper
+
+// Add available y/n to paper model & update existing data
+
+// Add styling logic to admin page for available y/n - green for active, red for inactive
+// Add conditional logic to client-facing pages to only show available papers (Change query params in API for GET papers or handle on client-side render)
+
+// Add components on admin page to update/delete:
+//// printMultiplier
+//// stretchedStandardFramingDepthMultiplier
+//// stretchedStandardGalleryWrapMultiplier
+//// stretchedDeepGalleryWrapMultiplier
+//// handAppliedTexturizingBrushstrokesMultiplier
+
+// Create new table in database to store canvas multipliers
+
+// Create API endpoint to GET canvas multipliers
+// Create API endpoint to POST canvas multipliers
+// Create API endpoint to PUT canvas multipliers
+// Create API endpoint to DELETE canvas multipliers
+
 "use client";
 
 import { FiEdit2 } from "react-icons/fi";
@@ -237,19 +265,17 @@ const Admin = () => {
               <p className="text-center font-semibold text-xl">
                 5+ Copies: ${priceFiveCopies.toFixed(2)}
               </p>
-              {isUserLoggedIn && (
-                <div className="my-6">
-                  <div className="flex justify-between">
-                    <FiEdit2 className={`${iconStyling}`} />
-                    <BsTrash className={`${iconStyling}`} />
-                    <AiOutlineEye className={`${iconStyling}`} />
-                    <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                  </div>
-                  <p className="text-center mt-6">
-                    Multiplier: {paper.multiplier}
-                  </p>{" "}
+              <div className="my-6">
+                <div className="flex justify-between">
+                  <FiEdit2 className={`${iconStyling}`} />
+                  <BsTrash className={`${iconStyling}`} />
+                  <AiOutlineEye className={`${iconStyling}`} />
+                  <AiOutlineEyeInvisible className={`${iconStyling}`} />
                 </div>
-              )}
+                <p className="text-center mt-6">
+                  Multiplier: {paper.multiplier}
+                </p>{" "}
+              </div>
             </div>
           );
         })}
@@ -345,19 +371,17 @@ const Admin = () => {
               <p className="text-center font-semibold text-xl">
                 5+ Copies: ${priceFiveCopies.toFixed(2)}
               </p>
-              {isUserLoggedIn && (
-                <div className="my-6">
-                  <div className="flex justify-between">
-                    <FiEdit2 className={`${iconStyling}`} />
-                    <BsTrash className={`${iconStyling}`} />
-                    <AiOutlineEye className={`${iconStyling}`} />
-                    <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                  </div>
-                  <p className="text-center mt-6">
-                    Multiplier: {paper.multiplier}
-                  </p>{" "}
+              <div className="my-6">
+                <div className="flex justify-between">
+                  <FiEdit2 className={`${iconStyling}`} />
+                  <BsTrash className={`${iconStyling}`} />
+                  <AiOutlineEye className={`${iconStyling}`} />
+                  <AiOutlineEyeInvisible className={`${iconStyling}`} />
                 </div>
-              )}
+                <p className="text-center mt-6">
+                  Multiplier: {paper.multiplier}
+                </p>{" "}
+              </div>
             </div>
           );
         })}
