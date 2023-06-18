@@ -15,22 +15,21 @@ const Nav = () => {
   return (
     <nav className="flex flex-col w-full pt-3">
       <div className="flex w-full justify-between">
-        <Link href="/" className="flex gap-2">
+        <Link href="/" className="bg-slate-700 rounded p-2">
           <Image
             src="/assets/logo.png"
             alt="Digital Arts Studio Logo"
-            width={30}
-            height={30}
+            width={100}
+            height={100}
             className="object-contain"
           />
-          <p className="logo_text">Digital Arts Studio</p>
         </Link>
-        <div className="sm:flex hidden">
+        <div className="sm:flex hidden mt-4">
           <IoLocationOutline className="text-xl ml-2 mr-1" /> 1082 Huff Rd NW B
           Atlanta, GA 30318 | <AiOutlinePhone className="text-xl ml-2 mr-1" />{" "}
           866-352-9779
         </div>
-        <div>
+        <div className="mt-4">
           {isUserLoggedIn ? (
             <div className="flex gap-3 md:gap-5">
               <button
@@ -43,7 +42,7 @@ const Nav = () => {
             </div>
           ) : (
             <div className="flex gap-3 md:gap-5">
-              <Link href="/login">
+              <Link href="/admin">
                 <button type="button" className="outline_btn">
                   Admin
                 </button>

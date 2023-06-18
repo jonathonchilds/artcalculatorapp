@@ -5,6 +5,7 @@ import React from "react";
 export const metadata = {
   title: "Print Cost Calculator",
   description: "Calculate the cost of printing your art",
+  icon: "/favicon.ico",
 };
 
 const RootLayout = ({ children }) => {
