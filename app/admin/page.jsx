@@ -10,6 +10,7 @@
 // Add available y/n to paper model & update existing data
 
 // Add styling logic to admin page for available y/n - green for active, red for inactive
+
 // Add conditional logic to client-facing pages to only show available papers (Change query params in API for GET papers or handle on client-side render)
 
 // Add components on admin page to update/delete:
@@ -94,10 +95,21 @@ const Admin = () => {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
+  const deletePaper = (id) => {
+    fetch(`/api/data/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.error("Error deleting data: ", error));
+  };
+
   const isUserLoggedIn = false;
 
   const cellBorder = "border-r border-t p-4 text-center";
-  const iconStyling = "text-2xl mx-1";
+  const iconStyling = "text-2xl mx-1 hover:cursor-pointer hover:text-slate-600";
   const tableHeadings = "border-r border-t p-6";
   const borders = "border rounded-xl m-2";
 
@@ -220,7 +232,10 @@ const Admin = () => {
                     <td className={`${cellBorder}`}>
                       <span className="flex">
                         <FiEdit2 className={`${iconStyling}`} />
-                        <BsTrash className={`${iconStyling}`} />
+                        <BsTrash
+                          className={`${iconStyling}`}
+                          onClick={deletePaper}
+                        />
                         <AiOutlineEye className={`${iconStyling}`} />
                         <AiOutlineEyeInvisible className={`${iconStyling}`} />
                       </span>
