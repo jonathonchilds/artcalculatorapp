@@ -43,7 +43,7 @@ const Nav = () => {
           ) : (
             <div className="flex gap-3 md:gap-5">
               <Link href="/admin">
-                <button type="button" className="outline_btn">
+                <button type="button" className="outline_btn bg-slate-700">
                   Admin
                 </button>
               </Link>

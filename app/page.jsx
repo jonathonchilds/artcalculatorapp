@@ -31,8 +31,8 @@ const Home = () => {
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
 
-  // had to add parsefloat because it was concatenating the strings instead of adding the numbers! Even though state is set to a number,
-  // it was still a string when it was being used in the calculation. I.e., 1 + 0 = 10 instead of 1 + 0 = 1
+  //
+  // had to add parsefloat because it was concatenating the strings instead of adding the numbers! Even though state is set to a number, it was still a string when it was being used in the calculation. I.e., 1 + 0 = 10 instead of 1 + 0 = 1
   // discovered while testing various conditions in the calculator: decimals, 0, etc.
   // not using reg. exp. checking for now, but may need to add later (supplied spreadsheet doesn't have validation)
   // I was rounding the width's and heights before supplying the values for finalSheetSize, but the supplied spreadsheet rounds up at the finalSheetSize calculation
