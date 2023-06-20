@@ -106,8 +106,7 @@ const Admin = () => {
       .catch((error) => console.error("Error deleting data: ", error));
   };
 
-  const isUserLoggedIn = false;
-
+  const isUserLoggedIn = true;
   const cellBorder = "border-r border-t p-4 text-center";
   const iconStyling = "text-2xl mx-1 hover:cursor-pointer hover:text-slate-600";
   const tableHeadings = "border-r border-t p-6";
