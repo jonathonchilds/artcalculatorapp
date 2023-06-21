@@ -30,28 +30,13 @@ const Nav = () => {
           866-352-9779
         </div>
         <div className="mt-4">
-          {isUserLoggedIn ? (
-            <div className="flex gap-3 md:gap-5">
-              <button
-                type="button"
-                onClick={() => {}}
-                className="outline_btn shadow-lg hover:bg-black hover:text-white"
-              >
-                Sign Out
+          <div className="flex gap-3 md:gap-5">
+            <Link href="https://www.digitalartsstudio.net/">
+              <button type="button" className="outline_btn hover:bg-slate-700">
+                Main Site
               </button>
-            </div>
-          ) : (
-            <div className="flex gap-3 md:gap-5">
-              <Link href="/admin">
-                <button
-                  type="button"
-                  className="outline_btn hover:bg-slate-700"
-                >
-                  Admin
-                </button>
-              </Link>
-            </div>
-          )}
+            </Link>
+          </div>
         </div>
       </div>
       <div className="sm:flex flex flex-wrap justify-center  w-full mt-20">
