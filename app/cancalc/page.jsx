@@ -37,27 +37,27 @@ const canCalc = () => {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
-  const borders = "border rounded-xl m-2";
+  const borders = "border rounded-xl m-2 flex flex-col justify-between";
 
   const lastParagraphs = "pb-6 text-center font-bold text-lg";
 
   return (
     <section className="mb-16 w-full flex-center flex-col">
-      <h1 className="head_text text-center">Canvas Calculator</h1>
-      <p className="my-10 text-center text-gray-600">
+      <h1 className="head_text  text-center">Canvas Calculator</h1>
+      <p className="my-16 text-center text-gray-600">
         Chromata LYVE by Breathing Color is the best fine art, archival canvas
         available for printmaking on the market. Chromata LYVE is a 20.5 mil
         white matte canvas. It is an archival giclee canvas free of optical
         brightner additives (OBAs). The fine tooth canvas prints details well
         with an exceptional color gamut and high dmax.
       </p>
-      <div className="flex sm:flex-between sm:mx-4 mb-10 flex-wrap justify-center ">
-        <div className="mb-4 sm:mx-4 w-72 h-auto border rounded-xl p-2 shadow-lg">
-          <h2 className="pb-2 text-center font-bold text-lg">
+      <div className="flex sm:flex-between sm:mx-4 flex-wrap justify-center mb-24 ">
+        <div className=" sm:mx-4 w-80 h-auto border rounded-xl p-8 shadow-lg">
+          <h2 className="pb-8 text-center font-bold text-xl">
             Enter Image Size
           </h2>
           <div className="flex flex-col">
-            <label className="text-center text-xs text-gray-600">
+            <label className="text-center text-xs text-gray-600 pb-2">
               Image Width
             </label>
             <input
@@ -67,7 +67,7 @@ const canCalc = () => {
                 setImageWidth(e.target.value);
               }}
             />
-            <label className="text-center text-xs text-gray-600">
+            <label className="text-center text-xs text-gray-600 pb-2 mt-4">
               Image Height
             </label>
             <input
@@ -80,24 +80,24 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-      <div className="mb-10 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 ">
+      <div className="mb-24 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-8 ">
         <div>
-          <h2 className="text-center font-bold text-lg p-2">
+          <h2 className="pb-4 text-center font-bold text-xl">
             Print Only (Rolled)
           </h2>
         </div>
         <div className="flex ">
-          <div className={`${borders}`}>
-            <p className="text-center p-2">Unstretched w/ 2" Border</p>
-            <p className="p-2 text-center text-xl">
+          <div className={`${borders} m-4`}>
+            <p className="text-center p-4">Unstretched w/ 2" Border</p>
+            <p className="pb-6 text-center text-xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(unstretchedTwoInchBorder)}`
                 : "$0.00"}
             </p>
           </div>
-          <div className={`${borders}`}>
-            <p className="text-center p-2">Unstretched w/ 3" Border</p>
-            <p className="p-2 text-center text-xl">
+          <div className={`${borders} m-4`}>
+            <p className="text-center p-4">Unstretched w/ 3" Border</p>
+            <p className="pb-6 text-center text-xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(unstretchedThreeInchBorder)}`
                 : "$0.00"}
@@ -105,38 +105,41 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-      <div className="mb-10 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
+      <div className="mb-16 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
         <div>
-          <h2 className="text-center font-bold text-lg p-2">
+          <h2 className="p-6 text-center font-bold text-xl">
             Stretched Options - Ready To Hang Or Frame (includes stretcher bar)
           </h2>
         </div>
         <div className="flex flex-col sm:flex-row">
-          <div className={`${borders}`}>
-            <p className="text-center p-2">Standard Framing Depth</p>
+          <div className={`${borders} m-4`}>
+            <p className="text-center p-4 ">Standard Framing Depth</p>
+            <p className="text-center p-4 ">3/4"</p>
             <p className="p-2 text-center text-xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedStandardFramingDepth)}`
                 : "$0.00"}
             </p>
           </div>
-          <div className={`${borders}`}>
-            <p className="text-center p-2">Standard Gallery Wrap</p>
+          <div className={`${borders} flex flex-col content-between m-4`}>
+            <p className="text-center p-4 ">Standard Gallery Wrap</p>
+            <p className="text-center p-4 ">1 1/4"</p>
             <p className="p-2 text-center text-xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedStandardGalleryWrap)}`
                 : "$0.00"}
             </p>
           </div>
-          <div className={`${borders}`}>
-            <p className="text-center p-2">Deep Gallery Wrap</p>
+          <div className={`${borders} m-4`}>
+            <p className="text-center p-4 ">Deep Gallery Wrap</p>
+            <p className="text-center p-4 ">2"</p>
             <p className="p-2 text-center text-xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedDeepGalleryWrap)}`
                 : "$0.00"}
             </p>
           </div>
-          <div className={`${borders}`}>
+          <div className={`${borders} m-4 `}>
             <p className="text-center p-2">
               Add for hand-applied, texturizing brushstrokes. <br /> (3D
               realistic feel of a real painting on canvas)

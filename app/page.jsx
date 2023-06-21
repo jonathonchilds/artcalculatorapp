@@ -4,6 +4,7 @@ import { FiEdit2 } from "react-icons/fi";
 import { BsTrash } from "react-icons/bs";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Home = () => {
   const [imageWidth, setImageWidth] = useState(0);
@@ -56,16 +57,12 @@ const Home = () => {
 
   const cellBorder = "border-r border-t p-4 text-center";
   const iconStyling = "text-2xl mx-1";
-  const tableHeadings = "border-r border-t p-6";
+  const tableHeadings = "border-r border-t p-6 text-3xl";
 
   return (
     <section className="w-full flex-center flex-col">
       <h1 className="head_text text-center">Print Cost Calculator</h1>
-      <p className="sm:my-12 my-10 text-center text-gray-600">
-        Use this calculator for non-standard sizes and/or to compare different
-        paper selections.
-      </p>
-      <div className="flex sm:flex-between sm:mx-4 mb-[14px] flex-wrap justify-center ">
+      <div className="flex sm:flex-between sm:mx-4 mb-[14px] flex-wrap justify-center mt-24">
         {/* image size container */}
         <div className="mb-4 sm:mx-4 w-72 h-auto border rounded-xl p-2 shadow-xl">
           <h2 className="pb-2 text-center font-bold text-lg">
@@ -129,48 +126,37 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="mb-10 sm:mx-4 border w-72 h-auto rounded-xl justify-center flex flex-col shadow-xl  p-2 min-h-max">
+      <div className="mb-10 sm:mx-4 border w-72 h-auto rounded-xl justify-center flex flex-col shadow-xl p-10 min-h-max">
         <h2 className="text-center font-bold text-xl p-2">Final Sheet Size</h2>
         <p className="p-2 text-center text-lg">
           {finalWidth} x {finalHeight}
         </p>
       </div>
-      <p className="mb-4 text-center text-md sm:w-[38rem]">
-        All Fine Art Papers are 100% archival cotton rag without optical
-        brightening agents or additives, printed with 12-color pigmented inks.
-      </p>
-      <p className="mb-4 text-center text-md sm:w-[38rem]">
-        Longevity tests estimate lightfastness for 100+ years.
-      </p>{" "}
-      <p className="mb-4 text-center text-md sm:w-[38rem]">
-        {" "}
-        More details are on price list or online store.
-      </p>
-      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:inline hidden ">
+
+      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:inline hidden w-[74rem]">
         <span>
-          <h1 className="text-center font-bold text-2xl pt-4 pb-6">
+          <h1 className="text-center font-bold text-5xl py-16">
             Archival Fine Art Papers (Giclee)
           </h1>
+          <p className="text-center text-md pb-10">
+            All Fine Art Papers are 100% archival cotton rag without optical
+            brightening agents or additives, printed with 12-color pigmented
+            inks.
+          </p>
+          <p className="pb-16 text-center text-lg  font-extrabold">
+            Longevity tests estimate lightfastness for 100+ years!
+          </p>{" "}
         </span>
         <table>
           <thead>
             <tr className="border-b">
-              <th className={`${tableHeadings}`}>
-                Paper Type
-                <br />
-                (100% cotton rag unless otherwise noted)
-              </th>
-              <th className={`${tableHeadings}`}>Paper Weight</th>
+              <th className={`${tableHeadings}`}>Type</th>
+              <th className={`${tableHeadings}`}>Weight</th>
               <th className={`${tableHeadings}`}>Description</th>
 
               <th className={`${tableHeadings}`}>Each</th>
-              <th className={`${tableHeadings}`}>5+ Copies</th>
-              {isUserLoggedIn ? (
-                <th className={`${tableHeadings}`}>Actions</th>
-              ) : (
-                ""
-              )}
-              {isUserLoggedIn ? <th className="p-2">Multiplier</th> : ""}
+              <th className={`${tableHeadings}`}>5+</th>
+              <th className={`${tableHeadings}`}></th>
             </tr>
           </thead>
           <tbody>
@@ -189,7 +175,9 @@ const Home = () => {
                 const priceFiveCopies = roundToTwo(priceEach * 0.9);
                 return (
                   <tr key={paper.id}>
-                    <td className={`${cellBorder}`}>{paper.paper_type}</td>
+                    <td className={`${cellBorder} text-xl font-semibold`}>
+                      {paper.paper_type}
+                    </td>
                     <td className={`${cellBorder}`}>{paper.paper_weight}</td>
                     <td className={`${cellBorder}`}>
                       {paper.paper_description}
@@ -198,25 +186,17 @@ const Home = () => {
                     <td className={`${cellBorder}`}>
                       ${priceFiveCopies.toFixed(2)}
                     </td>
-                    {isUserLoggedIn ? (
-                      <td className={`${cellBorder}`}>
-                        <span className="flex">
-                          <FiEdit2 className={`${iconStyling}`} />
-                          <BsTrash className={`${iconStyling}`} />
-                          <AiOutlineEye className={`${iconStyling}`} />
-                          <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                        </span>
-                      </td>
-                    ) : (
-                      ""
-                    )}
-                    {isUserLoggedIn ? (
-                      <td className="border-t p-4 text-center">
-                        {paper.multiplier}
-                      </td>
-                    ) : (
-                      ""
-                    )}
+                    <td
+                      className={`${cellBorder} hover:bg-slate-300 hover:cursor-pointer font-bold text-xl`}
+                      onClick={() =>
+                        window.open(
+                          "https://www.digitalartsstudio.com/",
+                          "_blank"
+                        )
+                      }
+                    >
+                      Order
+                    </td>
                   </tr>
                 );
               })
@@ -226,7 +206,7 @@ const Home = () => {
       </div>
       <div className="sm:hidden">
         <span>
-          <h1 className="text-center font-bold text-3xl pt-16">
+          <h1 className="text-center font-bold text-5xl pt-16">
             Archival Fine Art Papers (Giclee)
           </h1>
         </span>
@@ -241,7 +221,7 @@ const Home = () => {
               key={paper.id}
               className="border-2 border-slate-600 my-12 h-auto rounded-lg p-10"
             >
-              <h2 className="font-bold text-center pb-4 text-2xl">
+              <h2 className="font-bold text-center pb-4 text-4xl">
                 {paper.paper_type}
               </h2>
               <p className="text-center pb-1 text-lg">{paper.paper_weight}</p>
@@ -254,27 +234,23 @@ const Home = () => {
               <p className="text-center font-semibold text-xl">
                 5+ Copies: ${priceFiveCopies.toFixed(2)}
               </p>
-              {isUserLoggedIn && (
-                <div className="my-6">
-                  <div className="flex justify-between">
-                    <FiEdit2 className={`${iconStyling}`} />
-                    <BsTrash className={`${iconStyling}`} />
-                    <AiOutlineEye className={`${iconStyling}`} />
-                    <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                  </div>
-                  <p className="text-center mt-6">
-                    Multiplier: {paper.multiplier}
-                  </p>{" "}
-                </div>
-              )}
+              <p className="text-center font-semibold text-4xl mt-8">
+                <Link
+                  href="https://www.digitalartsstudio.com/"
+                  target="_blank"
+                  className="font-bold border-2 border-slate-600 p-2 rounded-lg hover:bg-slate-300"
+                >
+                  Order
+                </Link>
+              </p>
             </div>
           );
         })}
       </div>
-      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:inline hidden ">
+      <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:inline hidden my-16 w-[74rem]">
         <span>
-          <h1 className="text-center font-bold text-2xl pt-4 pb-6">
-            Photo Quality / Display Media
+          <h1 className="text-center font-bold text-5xl py-16">
+            Photo Quality & Display Media
           </h1>
         </span>
         <table>
@@ -286,12 +262,7 @@ const Home = () => {
 
               <th className={`${tableHeadings}`}>Each</th>
               <th className={`${tableHeadings}`}>5+ Copies</th>
-              {isUserLoggedIn ? (
-                <th className={`${tableHeadings}`}>Actions</th>
-              ) : (
-                ""
-              )}
-              {isUserLoggedIn ? <th className="p-2">Multiplier</th> : ""}
+              <th className={`${tableHeadings}`}></th>
             </tr>
           </thead>
           <tbody>
@@ -319,25 +290,17 @@ const Home = () => {
                     <td className={`${cellBorder}`}>
                       ${priceFiveCopies.toFixed(2)}
                     </td>
-                    {isUserLoggedIn ? (
-                      <td className={`${cellBorder}`}>
-                        <span className="flex">
-                          <FiEdit2 className={`${iconStyling}`} />
-                          <BsTrash className={`${iconStyling}`} />
-                          <AiOutlineEye className={`${iconStyling}`} />
-                          <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                        </span>
-                      </td>
-                    ) : (
-                      ""
-                    )}
-                    {isUserLoggedIn ? (
-                      <td className="border-t p-4 text-center">
-                        {paper.multiplier}
-                      </td>
-                    ) : (
-                      ""
-                    )}
+                    <td
+                      className={`${cellBorder} hover:bg-slate-300 hover:cursor-pointer font-bold text-xl`}
+                      onClick={() =>
+                        window.open(
+                          "https://www.digitalartsstudio.com/",
+                          "_blank"
+                        )
+                      }
+                    >
+                      Order
+                    </td>
                   </tr>
                 );
               })
@@ -375,19 +338,6 @@ const Home = () => {
               <p className="text-center font-semibold text-xl">
                 5+ Copies: ${priceFiveCopies.toFixed(2)}
               </p>
-              {isUserLoggedIn && (
-                <div className="my-6">
-                  <div className="flex justify-between">
-                    <FiEdit2 className={`${iconStyling}`} />
-                    <BsTrash className={`${iconStyling}`} />
-                    <AiOutlineEye className={`${iconStyling}`} />
-                    <AiOutlineEyeInvisible className={`${iconStyling}`} />
-                  </div>
-                  <p className="text-center mt-6">
-                    Multiplier: {paper.multiplier}
-                  </p>{" "}
-                </div>
-              )}
             </div>
           );
         })}
