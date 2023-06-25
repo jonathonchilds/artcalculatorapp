@@ -32,13 +32,6 @@ const Home = () => {
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);
 
-  //
-  // had to add parsefloat because it was concatenating the strings instead of adding the numbers! Even though state is set to a number, it was still a string when it was being used in the calculation. I.e., 1 + 0 = 10 instead of 1 + 0 = 1
-  // discovered while testing various conditions in the calculator: decimals, 0, etc.
-  // not using reg. exp. checking for now, but may need to add later (supplied spreadsheet doesn't have validation)
-  // I was rounding the width's and heights before supplying the values for finalSheetSize, but the supplied spreadsheet rounds up at the finalSheetSize calculation
-  //
-  //INTRODUCING.. The unary plus operator!!! (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus)
   const finalWidth = +imageWidth + +borderWidth * 2;
   const finalHeight = +imageHeight + +borderHeight * 2;
 
@@ -59,52 +52,45 @@ const Home = () => {
 
   return (
     <section className="flex-center flex-col">
-      <h1 className="head_text text-center">Print Cost Calculator</h1>
-      <div className="flex sm:flex-between sm:mx-4 mb-[14px] flex-wrap justify-center mt-24">
-        {/* image size container */}
-        <div className="mb-4 sm:mx-4 w-72 h-auto border rounded-xl p-2 shadow-xl">
-          <h2 className="pb-2 text-center font-bold text-lg">Image</h2>
-          <p className="pb-4 text-center text-gray-600">
-            (Sheet sizes will be rounded up to the next whole number)
-          </p>
-          <div className="flex flex-col">
-            <label className="text-center text-xs">Image Width</label>
+      <h1 className="head_text">Print Cost Calculator</h1>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center sm:space-x-24 sm:mt-32 sm:mb-32">
+        <div className="text-center">
+          <h2 className="">Image</h2>
+          <p className="text-sm pt-1">Sheet sizes will be rounded up</p>
+          <div className="space-x-2 mt-4">
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center border-2 "
+              placeholder="Width"
+              className="inputFields"
               onChange={(e) => {
                 setImageWidth(e.target.value);
               }}
             />
-            <label className="text-center text-xs">Image Height</label>
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mt-1 text-center border-2"
+              placeholder="Height"
+              className="inputFields"
               onChange={(e) => {
                 setImageHeight(e.target.value);
               }}
             />
           </div>
-        </div>
-        {/* border container */}
-        <div className="mb-4 sm:mx-4 border w-72 h-auto rounded-xl p-2 min-h-max shadow-xl">
-          <h2 className="pb-2 text-center font-bold text-lg">Border</h2>
-
-          <div className="flex flex-col">
+          <h2 className="pt-20">Border</h2>
+          <p className="text-sm pt-1">Per side</p>
+          <div className="space-x-2 mt-4">
             <input
               type="number"
               inputMode="numeric"
-              placeholder="Border Width (per side)"
+              placeholder="Width"
               className="inputFields"
               onChange={(e) => {
                 setBorderWidth(e.target.valueAsNumber);
               }}
             />
-
             <input
               type="number"
               inputMode="numeric"
-              placeholder="Border Height (per side)"
+              placeholder="Height"
               className="inputFields"
               onChange={(e) => {
                 setBorderHeight(e.target.valueAsNumber);
@@ -112,14 +98,15 @@ const Home = () => {
             />
           </div>
         </div>
+        <div>
+          <h2>
+            <span className="text-decoration underline decoration-purple underline-offset-8">
+              Final Sheet Size
+            </span>
+            : {finalWidth} x {finalHeight}
+          </h2>
+        </div>
       </div>
-      <div className="mb-10 sm:mx-4 border w-72 h-auto rounded-xl justify-center flex flex-col shadow-xl p-10 min-h-max">
-        <h2 className="text-center font-bold text-xl p-2">Final Sheet Size</h2>
-        <p className="p-2 text-center text-lg">
-          {finalWidth} x {finalHeight}
-        </p>
-      </div>
-
       <div className="sm:border sm:rounded-lg sm:shadow-2xl sm:m-10 sm:inline hidden w-[74rem]">
         <span>
           <h1 className="text-center font-bold text-5xl py-16">

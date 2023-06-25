@@ -2,6 +2,7 @@
 
 import { AiOutlinePhone } from "react-icons/ai";
 import { IoLocationOutline } from "react-icons/io5";
+import { BsGlobe2 } from "react-icons/bs";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -25,31 +26,33 @@ const Nav = () => {
         30318{" "}
         <div className="flex items-center">
           <AiOutlinePhone className="mr-1" />
-          866-352-9779{" "}
+          866-352-9779
         </div>
+        <Link
+          href="https://www.digitalartsstudio.net/"
+          target="_blank"
+          className="flex items-center"
+        >
+          <BsGlobe2 className="mr-1" />
+          Home
+        </Link>
       </div>
       <div className="flex items-center justify-center ">
         {pathname === "/cancalc" ? (
           <Link href="/" className="">
-            <button type="button" className="navButton">
+            <button type="button" className="expButton">
               Print Cost Calculator
             </button>
           </Link>
         ) : (
           <Link href="/cancalc">
-            <button type="button" className="navButton">
+            <button type="button" className="expButton uppercase">
               Canvas Calculator
             </button>
           </Link>
         )}
       </div>
-      <div className="flex justify-center items-center">
-        <Link href="https://www.digitalartsstudio.net/" target="_blank">
-          <button type="button" className="navButton">
-            Main Site
-          </button>
-        </Link>
-      </div>
+      <div className="flex justify-center items-center"></div>
     </nav>
   );
 };
