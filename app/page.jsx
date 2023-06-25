@@ -60,7 +60,7 @@ const Home = () => {
   const tableHeadings = "border-r border-t p-6 text-3xl";
 
   return (
-    <section className="w-full flex-center flex-col">
+    <section className="overflow-x-hidden flex-center flex-col">
       <h1 className="head_text text-center">Print Cost Calculator</h1>
       <div className="flex sm:flex-between sm:mx-4 mb-[14px] flex-wrap justify-center mt-24">
         {/* image size container */}

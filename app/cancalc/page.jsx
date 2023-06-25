@@ -43,7 +43,7 @@ const canCalc = () => {
 
   return (
     <section className="mb-16 w-full flex-center flex-col">
-      <h1 className="head_text  text-center">Canvas Calculator</h1>
+      <h1 className="head_text text-center">Canvas Calculator</h1>
       <p className="my-16 text-center text-gray-600">
         Chromata LYVE by Breathing Color is the best fine art, archival canvas
         available for printmaking on the market. Chromata LYVE is a 20.5 mil
