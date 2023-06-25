@@ -1,6 +1,13 @@
 import Nav from "@components/Nav";
 import "@styles/globals.css";
 import React from "react";
+import { Orbitron } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-orbitron",
+});
 
 export const metadata = {
   title: "Print Cost Calculator",
@@ -10,7 +17,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="en" className={`${orbitron.variable}`}>
       <body>
         <div className="main">
           <div className="gradient" />

@@ -53,28 +53,22 @@ const Home = () => {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
-  const isUserLoggedIn = false;
-
   const cellBorder = "border-r border-t p-4 text-center";
   const iconStyling = "text-2xl mx-1";
   const tableHeadings = "border-r border-t p-6 text-3xl";
 
   return (
-    <section className="overflow-x-hidden flex-center flex-col">
+    <section className="flex-center flex-col">
       <h1 className="head_text text-center">Print Cost Calculator</h1>
       <div className="flex sm:flex-between sm:mx-4 mb-[14px] flex-wrap justify-center mt-24">
         {/* image size container */}
         <div className="mb-4 sm:mx-4 w-72 h-auto border rounded-xl p-2 shadow-xl">
-          <h2 className="pb-2 text-center font-bold text-lg">
-            Enter Image Size
-          </h2>
+          <h2 className="pb-2 text-center font-bold text-lg">Image</h2>
           <p className="pb-4 text-center text-gray-600">
             (Sheet sizes will be rounded up to the next whole number)
           </p>
           <div className="flex flex-col">
-            <label className="text-center text-xs text-gray-600">
-              Image Width
-            </label>
+            <label className="text-center text-xs">Image Width</label>
             <input
               type="number"
               className="rounded-xl p-4 my-3 mb-5 mt-1 text-center border-2 "
@@ -82,9 +76,7 @@ const Home = () => {
                 setImageWidth(e.target.value);
               }}
             />
-            <label className="text-center text-xs text-gray-600">
-              Image Height
-            </label>
+            <label className="text-center text-xs">Image Height</label>
             <input
               type="number"
               className="rounded-xl p-4 my-3 mt-1 text-center border-2"
@@ -96,29 +88,24 @@ const Home = () => {
         </div>
         {/* border container */}
         <div className="mb-4 sm:mx-4 border w-72 h-auto rounded-xl p-2 min-h-max shadow-xl">
-          <h2 className="pb-2 text-center font-bold text-lg">
-            Enter Border Size
-          </h2>
-          <p className="pb-4 h-[64px] text-center text-gray-600">(Per Side)</p>
+          <h2 className="pb-2 text-center font-bold text-lg">Border</h2>
+
           <div className="flex flex-col">
-            <label className="text-center text-xs text-gray-600">
-              Border Width
-            </label>
             <input
               type="number"
               inputMode="numeric"
-              className="rounded-xl p-4 my-3 mb-5 mt-1 text-center border-2 "
+              placeholder="Border Width (per side)"
+              className="inputFields"
               onChange={(e) => {
                 setBorderWidth(e.target.valueAsNumber);
               }}
             />
-            <label className="text-center text-xs text-gray-600">
-              Border Height
-            </label>
+
             <input
               type="number"
               inputMode="numeric"
-              className="rounded-xl p-4 my-3 mt-1 text-center border-2"
+              placeholder="Border Height (per side)"
+              className="inputFields"
               onChange={(e) => {
                 setBorderHeight(e.target.valueAsNumber);
               }}

@@ -9,19 +9,19 @@ table tbody tr:hover {
 }
 
 body {
-  @apply bg-[#191717] text-white;
+  @apply bg-[#191717] text-white font-orbitron font-light;
 }
 
-.black_btn {
-  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+.navButton {
+  @apply rounded-lg  py-4 px-5 m-2 text-xl transition-all tracking-wide  text-white bg-red/80 border-white border hover:bg-redHover text-center w-60 flex items-center justify-center;
 }
 
-.outline_btn {
-  @apply rounded-lg border py-4 px-5 m-2 text-xl transition-all tracking-wide  text-white  hover:bg-[#ff5059]/90 text-center w-60 flex items-center justify-center;
+.inputFields {
+  @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#191717] text-gray-500 placeholder-gray-500 transition-all focus:border-red  hover:border-redHover;
 }
 
 .head_text {
-  @apply mt-28 text-5xl font-semibold underline decoration-[#FF5059]/80 leading-[1.15] text-white tracking-wide uppercase sm:text-6xl;
+  @apply mt-28 text-5xl underline decoration-red/80 leading-[1.15] text-white tracking-wide uppercase sm:text-6xl;
 }
 
 .desc {
@@ -42,10 +42,6 @@ body {
 
 .dropdown {
   @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
-}
-
-.dropdown_link {
-  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
 }
 
 .flex-center {

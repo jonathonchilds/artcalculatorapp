@@ -14,19 +14,13 @@ const Nav = () => {
     <nav className="flex py-6 bg-[#191717] w-full px-12 sticky top-0 justify-evenly">
       <div className="flex items-center">
         <img
-          decoding="async"
-          loading="lazy"
-          class="w-[500px]"
           src="https://www.digitalartsstudio.net/wp-content/uploads/2020/12/digital-arts-studio-animated-logo-no-loop.gif"
-          alt="digital-arts-studio-animated-logo-no-loop"
-          itemprop="image"
-          data-no-lazy="1"
-          title="digital-arts-studio-animated-logo-no-loop"
-          width="900"
-          height="270"
+          alt="Digital Arts Studio Logo"
+          width={500}
+          height={300}
         />
       </div>
-      <div className="sm:flex hidden px-2 text-white space-x-5 text-xl items-center">
+      <div className="sm:flex hidden px-2 text-white space-x-5 text-xl font-light items-center">
         <IoLocationOutline className="mr-1" /> 1082 Huff Rd NW B Atlanta, GA
         30318{" "}
         <div className="flex items-center">
@@ -37,13 +31,13 @@ const Nav = () => {
       <div className="flex items-center justify-center ">
         {pathname === "/cancalc" ? (
           <Link href="/" className="">
-            <button type="button" className="outline_btn ">
+            <button type="button" className="navButton">
               Print Cost Calculator
             </button>
           </Link>
         ) : (
           <Link href="/cancalc">
-            <button type="button" className="outline_btn">
+            <button type="button" className="navButton">
               Canvas Calculator
             </button>
           </Link>
@@ -51,7 +45,7 @@ const Nav = () => {
       </div>
       <div className="flex justify-center items-center">
         <Link href="https://www.digitalartsstudio.net/" target="_blank">
-          <button type="button" className="outline_btn">
+          <button type="button" className="navButton">
             Main Site
           </button>
         </Link>

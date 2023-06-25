@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,10 +10,14 @@ module.exports = {
     extend: {
       fontFamily: {
         satoshi: ["Satoshi", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
+        orbitron: ["Orbitron", "sans-serif"],
       },
       colors: {
-        "primary-orange": "#FF5722",
+        red: "#FF5059",
+        redHover: "#e03132",
+        purple: "#FF5059",
+        blue: "#4c8dda",
+        blueHover: "#156dd8",
       },
     },
   },
