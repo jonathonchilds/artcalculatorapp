@@ -43,36 +43,32 @@ const canCalc = () => {
 
   return (
     <section className="mb-16 w-full flex-center flex-col">
-      <h1 className="head_text text-center">Canvas Calculator</h1>
-      <p className="my-16 text-center text-gray-600">
+      <h1 className="head_text pt-28 text-center">Canvas Calculator</h1>
+      <p className="text-center text-md my-10 max-w-7xl mb-24">
         Chromata LYVE by Breathing Color is the best fine art, archival canvas
         available for printmaking on the market. Chromata LYVE is a 20.5 mil
         white matte canvas. It is an archival giclee canvas free of optical
         brightner additives (OBAs). The fine tooth canvas prints details well
         with an exceptional color gamut and high dmax.
       </p>
+
       <div className="flex sm:flex-between sm:mx-4 flex-wrap justify-center mb-24 ">
-        <div className=" sm:mx-4 w-80 h-auto border rounded-xl p-8 shadow-lg">
-          <h2 className="pb-8 text-center font-bold text-xl">
-            Enter Image Size
-          </h2>
-          <div className="flex flex-col">
-            <label className="text-center text-xs text-gray-600 pb-2">
-              Image Width
-            </label>
+        <div className="text-center border rounded-2xl border-gray-600 shadow-2xl shadow-gray-600 p-12">
+          <h2 className="py-4">Image</h2>
+
+          <div className="space-x-3 mt-4">
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mb-5 mt-1 border-2 text-center "
+              placeholder="Width"
+              className="inputFields"
               onChange={(e) => {
                 setImageWidth(e.target.value);
               }}
             />
-            <label className="text-center text-xs text-gray-600 pb-2 mt-4">
-              Image Height
-            </label>
             <input
               type="number"
-              className="rounded-xl p-4 my-3 mt-1 border-2 text-center"
+              placeholder="Height"
+              className="inputFields"
               onChange={(e) => {
                 setImageHeight(e.target.value);
               }}
@@ -80,36 +76,60 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-      <div className="mb-24 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-8 ">
-        <div>
-          <h2 className="pb-4 text-center font-bold text-xl">
-            Print Only (Rolled)
-          </h2>
+      <div className="flex justify-between space-x-20 items-center mb-24 ">
+        <div className="  border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-8 ">
+          <div className="mb-4">
+            <h2 className="text-center mb-1">Print Only</h2>
+            <h3 className="text-center">Rolled & Unstretched</h3>
+          </div>
+          <div className="flex ">
+            <div className={`${borders} m-4`}>
+              <p className="text-center p-4">With 2" Border</p>
+              <p className="pb-6 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `$${roundToTwo(unstretchedTwoInchBorder)}`
+                  : "$0.00"}
+              </p>
+            </div>
+            <div className={`${borders} m-4`}>
+              <p className="text-center p-4">With 3" Border</p>
+              <p className="pb-6 text-center text-xl">
+                {imageHeight && imageWidth
+                  ? `$${roundToTwo(unstretchedThreeInchBorder)}`
+                  : "$0.00"}
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="flex ">
-          <div className={`${borders} m-4`}>
-            <p className="text-center p-4">Unstretched w/ 2" Border</p>
-            <p className="pb-6 text-center text-xl">
-              {imageHeight && imageWidth
-                ? `$${roundToTwo(unstretchedTwoInchBorder)}`
-                : "$0.00"}
-            </p>
-          </div>
-          <div className={`${borders} m-4`}>
-            <p className="text-center p-4">Unstretched w/ 3" Border</p>
-            <p className="pb-6 text-center text-xl">
-              {imageHeight && imageWidth
-                ? `$${roundToTwo(unstretchedThreeInchBorder)}`
-                : "$0.00"}
-            </p>
-          </div>
+        <div>
+          <ul className="space-y-2 list-disc">
+            <li>
+              Prices include choice of protective varnish: matte, satin or
+              gloss.
+            </li>
+            <li>Prices are subject to change without notice.</li>
+            <li>
+              A 10% DISCOUNT is available for 5 or more of same image and size.
+              See Price List for Bulk Order Options
+            </li>
+            <li>Maximum image width for LYVE is 54” on 60” roll size.</li>
+            <li>
+              PLEASE NOTE: 36” x 48” is the largest stretched canvas that can be
+              shipped via UPS.
+            </li>
+            <li>
+              Standard turnaround is 3-4 days. Stretching and/or texturizing may
+              add additional time.
+            </li>
+            <li>RUSH SERVICE AVAILABLE. CALL US TO SCHEDULE!</li>
+          </ul>
         </div>
       </div>
       <div className="mb-16 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
-        <div>
-          <h2 className="p-6 text-center font-bold text-xl">
-            Stretched Options - Ready To Hang Or Frame (includes stretcher bar)
-          </h2>
+        <div className="my-8">
+          <h2 className="text-center mb-1">Stretched Options</h2>
+          <h3 className="text-center">Ready To Hang Or Frame</h3>
+          <h3 className="text-center">Includes Stretcher Bar</h3>
         </div>
         <div className="flex flex-col sm:flex-row">
           <div className={`${borders} m-4`}>
@@ -152,31 +172,6 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-
-      <p className={`${lastParagraphs}`}>
-        Prices include choice of protective varnish: matte, satin or gloss.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        Prices are subject to change without notice.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        A 10% DISCOUNT is available for 5 or more of same image and size. See
-        Price List for Bulk Order Options
-      </p>
-      <p className={`${lastParagraphs}`}>
-        Maximum image width for LYVE is 54” on 60” roll size.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        PLEASE NOTE: 36” x 48” is the largest stretched canvas that can be
-        shipped via UPS.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        Standard turnaround is 3-4 days. Stretching and/or texturizing may add
-        additional time.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        RUSH SERVICE AVAILABLE. CALL US TO SCHEDULE. (866) 352-9779
-      </p>
     </section>
   );
 };

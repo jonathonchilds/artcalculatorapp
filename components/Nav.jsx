@@ -7,18 +7,18 @@ import { BsGlobe2 } from "react-icons/bs";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import "../styles/glowButton.css";
 
 const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex py-6 bg-[#191717] w-full px-12 sticky top-0 justify-evenly">
+    <nav className="sm:flex sm:flex-row flex-col  pt-6 pb-2 bg-[#191717] w-full px-12 sticky top-0 justify-evenly items-center">
       <div className="flex items-center">
         <img
           src="https://www.digitalartsstudio.net/wp-content/uploads/2020/12/digital-arts-studio-animated-logo-no-loop.gif"
           alt="Digital Arts Studio Logo"
-          width={500}
-          height={300}
+          width={450}
         />
       </div>
       <div className="sm:flex hidden px-2 text-white space-x-5 text-xl font-light items-center">
@@ -33,20 +33,23 @@ const Nav = () => {
           target="_blank"
           className="flex items-center"
         >
-          <BsGlobe2 className="mr-1" />
+          <BsGlobe2 className="mr-1 mb-1" />
           Home
         </Link>
       </div>
-      <div className="flex items-center justify-center ">
+      <div className="flex items-center justify-center pt-6 sm:py-auto ">
         {pathname === "/cancalc" ? (
           <Link href="/" className="">
-            <button type="button" className="expButton">
+            <button type="button" className="glowingButton -rotate-1 uppercase">
               Print Cost Calculator
             </button>
           </Link>
         ) : (
           <Link href="/cancalc">
-            <button type="button" className="expButton uppercase">
+            <button
+              type="button"
+              className="glowingButton -rotate-1 uppercase "
+            >
               Canvas Calculator
             </button>
           </Link>

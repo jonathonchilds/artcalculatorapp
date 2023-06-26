@@ -17,8 +17,28 @@ h2 {
   @apply text-3xl uppercase  text-white leading-7 tracking-widest;
 }
 
+th {
+  @apply text-3xl uppercase text-white py-8 tracking-widest font-thin;
+}
+
+td:last-child {
+  @apply hover:bg-purple/80 hover:cursor-pointer;
+}
+
+table tbody tr:nth-child(even) {
+  @apply bg-[#191717];
+}
+
+table tbody tr:nth-child(odd) {
+  @apply bg-gray-500/50;
+}
+
 table tbody tr:hover {
-  background-color: #f5f5f5;
+  @apply bg-purple/80;
+}
+
+td {
+  @apply text-center p-2 py-6;
 }
 
 body {
@@ -26,19 +46,43 @@ body {
 }
 
 .navButton {
-  @apply rounded-lg py-4   px-5 m-2 text-xl transition-all tracking-wide  text-white bg-purple/80 border-white border hover:bg-redHover text-center w-60 flex items-center justify-center;
+  @apply rounded-lg py-4 px-5 m-2 text-xl transition-all tracking-wide  text-white bg-purple/80 border-white border hover:bg-redHover text-center w-60 flex items-center justify-center;
 }
 
 .expButton {
-  @apply bg-red/80 rounded-md border-none  box-border flex font-sans justify-center leading-7 py-3 px-4  cursor-pointer transform -rotate-2 focus:outline-none hover:bg-redHover hover:bottom-1 hover:left-1 sm:py-3 sm:px-12 sm:text-xl;
+  @apply bg-red/80 rounded-md border-none animate-[pulse_6s_infinite] box-border flex font-sans justify-center leading-7 py-3 px-4 cursor-pointer transform -rotate-1 focus:outline-none hover:bg-redHover hover:bottom-1 hover:left-1 sm:py-3 sm:px-12 sm:text-xl;
 }
 
 .inputFields {
-  @apply outline-none bg-slate-400/10 rounded text-center border-b px-6 py-4 border-[#191717]  text-white text-3xl w-40 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
+  @apply outline-none bg-slate-400/10 rounded-2xl text-center border-b px-6 py-4 border-[#191717]  text-white text-3xl w-40 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
+}
+
+.mobileInputFields {
+  @apply outline-none bg-slate-400/10 rounded-2xl text-center border-b px-6 py-4 border-[#191717]  text-white text-xl w-28 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
 }
 
 .head_text {
-  @apply mt-24 text-3xl underline underline-offset-[10px] decoration-purple text-white tracking-[20px] uppercase sm:text-5xl;
+  @apply mt-16 underline underline-offset-[10px] decoration-purple text-white tracking-[20px] uppercase text-5xl;
+}
+
+.mobileHeadText {
+  @apply my-16 text-3xl text-center underline underline-offset-[5px] decoration-purple text-white tracking-wide uppercase;
+}
+
+.sizingInputContainer {
+  @apply text-center border rounded-2xl border-gray-600 shadow-2xl shadow-gray-600 p-16;
+}
+
+.mobileSizingInputContainer {
+  @apply text-center border rounded-2xl border-gray-600 shadow-lg shadow-gray-600 p-5 m-4;
+}
+
+.tableHeading {
+  @apply mt-20 text-3xl underline underline-offset-[10px] decoration-purple text-white tracking-[20px] uppercase sm:text-5xl;
+}
+
+.mobileTableHeading {
+  @apply text-3xl underline underline-offset-[5px] decoration-purple text-white tracking-wide uppercase;
 }
 
 .desc {
