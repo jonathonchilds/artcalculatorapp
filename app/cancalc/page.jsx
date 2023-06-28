@@ -34,7 +34,8 @@ const canCalc = () => {
     ((width * height) / 144) * handAppliedTexturizingBrushstrokesMultiplier;
 
   function roundToTwo(num) {
-    return +(Math.round(num + "e+2") + "e-2");
+    const numBeforeFixed = +(Math.round(num + "e+2") + "e-2");
+    return numBeforeFixed.toFixed(2);
   }
 
   const borders = "flex flex-col justify-between m-2 border rounded-xl ";
@@ -72,14 +73,16 @@ const canCalc = () => {
       </div>
 
       <div className="flex flex-wrap justify-center items-center sm:space-x-20">
-        <div className="flex items-center flex-col justify-evenly h-[300px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 p-12 space-y-6 text-center">
-          <h2 className="underline underline-offset-[10px] decoration-purple">
-            Image
-          </h2>
+        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 ">
+          <div className="h-[64px]">
+            <h2 className="underline underline-offset-[8px] decoration-purple">
+              Image
+            </h2>
+          </div>
           <input
             type="number"
             placeholder="Width"
-            className="inputFields"
+            className="inputFields h-[61.5px]"
             onChange={(e) => {
               setImageWidth(e.target.value);
             }}
@@ -87,15 +90,15 @@ const canCalc = () => {
           <input
             type="number"
             placeholder="Height"
-            className="inputFields"
+            className="inputFields h-[61.5px]"
             onChange={(e) => {
               setImageHeight(e.target.value);
             }}
           />
         </div>
-        <div className="flex flex-col justify-evenly items-center h-[300px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 p-12 space-y-6  text-center">
+        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 text-center">
           <div>
-            <h2 className="underline underline-offset-[10px] decoration-purple mb-3">
+            <h2 className="underline underline-offset-[8px] decoration-purple mb-3">
               Print Only
             </h2>
             <h3 className="text-center">Rolled & Unstretched</h3>
@@ -122,13 +125,16 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-[730px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 p-12 space-y-6">
-        <div>
-          <h2 className="underline underline-offset-[10px] decoration-purple mb-3 text-center">
+      <div className="flex w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 p-12 space-y-6">
+        <div className="flex">
+          <h3 className="hidden sm:inline-block text-center rotate-3">
+            Ready To Hang Or Frame!
+          </h3>
+          <h2 className="underline underline-offset-[8px] decoration-purple mb-3 text-center leading-10">
             Stretched Options
           </h2>
-          <h3 className="text-center">Ready To Hang Or Frame</h3>
-          <h3 className="text-center underline decoration-purple underline-offset-[5px]">
+
+          <h3 className="hidden sm:inline-block text-center underline decoration-purple underline-offset-[5px] -rotate-3">
             Includes Stretcher Bar
           </h3>
         </div>
