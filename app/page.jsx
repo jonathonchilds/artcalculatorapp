@@ -48,7 +48,7 @@ const Home = () => {
 
   return (
     <section className="flex items-center flex-col space-y-24 mt-16">
-      <h1 className="headText">Print Cost Calculator</h1>
+      <h1 className="tableHeading">Print Cost Calculator</h1>
       <div className="sizingInputContainer">
         <div className=" h-[230px] flex flex-col justify-evenly items-center ">
           <div className="text-center">
