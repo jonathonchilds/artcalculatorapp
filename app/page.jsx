@@ -52,7 +52,7 @@ const Home = () => {
       <div className="sizingInputContainer">
         <div className=" h-[230px] flex flex-col justify-evenly items-center ">
           <div className="text-center">
-            <h2>Image</h2>
+            <h2 className="pb-2">Image</h2>
             <p className="text-sm">Sheet sizes will be rounded up</p>
           </div>
           <div className="space-x-3">
@@ -76,7 +76,7 @@ const Home = () => {
         </div>
         <div className="h-[230px] flex flex-col justify-evenly items-center ">
           <div className="text-center">
-            <h2>Border</h2>
+            <h2 className="pb-2">Border</h2>
             <p className="text-sm">Per side</p>
           </div>
           <div className="space-x-3">
@@ -101,8 +101,8 @@ const Home = () => {
           </div>
         </div>
         <div className="h-[230px] flex flex-col justify-evenly items-center ">
-          <h2 className="h-[48px]">Final Sheet Size</h2>
-          <span className="sm:text-3xl text-xl h-[69px] flex items-center">
+          <h2 className="h-[56px]">Final Sheet</h2>
+          <span className="sm:text-4xl text-xl h-[53px] font-semibold flex items-center">
             <div>
               {finalWidth ? finalWidth : "0"} x{" "}
               {finalHeight ? finalHeight : "0"}
@@ -111,7 +111,9 @@ const Home = () => {
         </div>
       </div>
       <span className="space-y-8">
-        <h1 className="headText text-center">Archival Fine Art Papers</h1>
+        <h1 className="tableHeading mt-16 text-center">
+          Archival Fine Art Papers
+        </h1>
         <h2 className="text-center">(Giclee)</h2>
         <p className="text-center text-md">
           All Fine Art Papers are 100% archival cotton rag without optical
@@ -149,12 +151,13 @@ const Home = () => {
                 const priceFiveCopies = roundToTwo(priceEach * 0.9);
                 return (
                   <tr key={paper.id}>
-                    <td>{paper.paper_type}</td>
+                    <td className="px-5">{paper.paper_type}</td>
                     <td>{paper.paper_weight}</td>
                     <td>{paper.paper_description}</td>
                     <td>${priceEach.toFixed(2)}</td>
                     <td>${priceFiveCopies.toFixed(2)}</td>
                     <td
+                      className="px-5"
                       onClick={() =>
                         window.open(
                           "https://www.digitalartsstudio.com/",
@@ -210,7 +213,7 @@ const Home = () => {
         })}
       </div>
 
-      <h1 className="headText text-center pt-36">
+      <h1 className="tableHeading text-center pt-16">
         Photo Quality & Display Media
       </h1>
 
@@ -242,12 +245,13 @@ const Home = () => {
                 const priceFiveCopies = roundToTwo(priceEach * 0.9);
                 return (
                   <tr key={paper.id}>
-                    <td>{paper.paper_type}</td>
+                    <td className="px-5">{paper.paper_type}</td>
                     <td>{paper.paper_weight}</td>
                     <td>{paper.paper_description}</td>
                     <td>${priceEach.toFixed(2)}</td>
                     <td>${priceFiveCopies.toFixed(2)}</td>
                     <td
+                      className="px-5"
                       onClick={() =>
                         window.open(
                           "https://www.digitalartsstudio.com/",

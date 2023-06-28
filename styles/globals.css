@@ -23,7 +23,7 @@ th {
 }
 
 td:last-child {
-  @apply hover:bg-purple/80 hover:cursor-pointer;
+  @apply hover:bg-lightBlue/70 hover:cursor-pointer;
 }
 
 table tbody tr:nth-child(even) {
@@ -47,7 +47,7 @@ body {
 }
 
 .inputFields {
-  @apply outline-none bg-slate-400/10 rounded-2xl text-center border-b px-6 py-4 border-[#191717] text-white sm:text-3xl text-xl sm:w-36 w-28 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
+  @apply outline-none bg-slate-400/10 rounded-2xl text-center border-b p-2 border-[#191717] shadow shadow-purple text-lightBlue sm:text-3xl text-xl sm:w-36 w-28 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
 }
 
 .headText {
@@ -55,11 +55,11 @@ body {
 }
 
 .sizingInputContainer {
-  @apply flex flex-col sm:flex-row justify-center items-center border rounded-2xl border-gray-600 shadow-lg sm:shadow-2xl shadow-gray-600 sm:p-6 sm:space-x-6 p-5;
+  @apply flex flex-col sm:flex-row justify-center items-center border rounded-2xl border-gray-600 shadow-lg shadow-gray-600 sm:p-6 sm:space-x-16 p-5;
 }
 
 .tableHeading {
-  @apply text-3xl underline underline-offset-[10px] decoration-purple text-white tracking-[20px] uppercase sm:text-5xl;
+  @apply text-3xl underline underline-offset-[10px] decoration-purple text-white tracking-[20px] uppercase;
 }
 
 .desc {
