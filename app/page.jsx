@@ -47,17 +47,19 @@ const Home = () => {
   const cellBorder = "border-r border-t p-4 text-center";
 
   return (
-    <section className="flex-center flex-col">
-      <h1 className="sm:head_text mobileHeadText">Print Cost Calculator</h1>
-      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center sm:space-x-24 sm:mt-16 sm:mb-32 ">
-        <div className="sm:sizingInputContainer mobileSizingInputContainer">
-          <h2 className="">Image</h2>
-          <p className="text-sm pt-1">Sheet sizes will be rounded up</p>
-          <div className="space-x-3 mt-4">
+    <section className="flex items-center flex-col space-y-24 mt-16">
+      <h1 className="headText">Print Cost Calculator</h1>
+      <div className="sizingInputContainer">
+        <div className=" h-[230px] flex flex-col justify-evenly items-center ">
+          <div className="text-center">
+            <h2>Image</h2>
+            <p className="text-sm">Sheet sizes will be rounded up</p>
+          </div>
+          <div className="space-x-3">
             <input
               type="number"
               placeholder="Width"
-              className="inputFields mobileInputFields"
+              className="inputFields"
               onChange={(e) => {
                 setImageWidth(e.target.value);
               }}
@@ -65,20 +67,24 @@ const Home = () => {
             <input
               type="number"
               placeholder="Height"
-              className="mobileInputFields inputFields"
+              className="inputFields"
               onChange={(e) => {
                 setImageHeight(e.target.value);
               }}
             />
           </div>
-          <h2 className="pt-20">Border</h2>
-          <p className="text-sm pt-1">Per side</p>
-          <div className="space-x-3 mt-4">
+        </div>
+        <div className="h-[230px] flex flex-col justify-evenly items-center ">
+          <div className="text-center">
+            <h2>Border</h2>
+            <p className="text-sm">Per side</p>
+          </div>
+          <div className="space-x-3">
             <input
               type="number"
               inputMode="numeric"
               placeholder="Width"
-              className="mobileInputFields inputFields"
+              className="inputFields"
               onChange={(e) => {
                 setBorderWidth(e.target.valueAsNumber);
               }}
@@ -87,36 +93,35 @@ const Home = () => {
               type="number"
               inputMode="numeric"
               placeholder="Height"
-              className="mobileInputFields inputFields"
+              className="inputFields"
               onChange={(e) => {
                 setBorderHeight(e.target.valueAsNumber);
               }}
             />
           </div>
         </div>
-        <div>
-          <h2 className="sm:inline-block flex flex-col items-center mt-12 sm:m-auto ">
-            <span className="text-decoration underline decoration-purple underline-offset-8 text-2xl sm:text-3xl mb-4 sm:m-auto">
-              Final Sheet Size
-            </span>{" "}
-            {finalWidth ? finalWidth : "0"} x {finalHeight ? finalHeight : "0"}
-          </h2>
+        <div className="h-[230px] flex flex-col justify-evenly items-center ">
+          <h2 className="h-[48px]">Final Sheet Size</h2>
+          <span className="sm:text-3xl text-xl h-[69px] flex items-center">
+            <div>
+              {finalWidth ? finalWidth : "0"} x{" "}
+              {finalHeight ? finalHeight : "0"}
+            </div>
+          </span>
         </div>
       </div>
-      <span className="mt-36">
-        <h1 className="sm:tableHeading mobileTableHeading text-center">
-          Archival Fine Art Papers
-        </h1>
-        <h2 className="text-center mt-5 mb-16">(Giclee)</h2>
-        <p className="text-center text-md pb-4 mt-4">
+      <span className="space-y-8">
+        <h1 className="headText text-center">Archival Fine Art Papers</h1>
+        <h2 className="text-center">(Giclee)</h2>
+        <p className="text-center text-md">
           All Fine Art Papers are 100% archival cotton rag without optical
           brightening agents or additives, printed with 12-color pigmented inks.
         </p>
-        <p className="pb-16 text-center text-md ">
+        <p className="text-center text-md ">
           Longevity tests estimate lightfastness for 100+ years.
         </p>
       </span>
-      <section className="sm:border sm:border-thin sm:rounded-xl sm:shadow-2xl sm:inline hidden sm:w-7xl sm:border-gray-600 sm:shadow-gray-600">
+      <section className="hidden sm:inline sm:w-7xl sm:shadow-2xl sm:shadow-gray-600 sm:border sm:border-thin sm:rounded-xl sm:border-gray-600 ">
         <table>
           <thead>
             <tr>
@@ -205,11 +210,11 @@ const Home = () => {
         })}
       </div>
 
-      <h1 className="sm:tableHeading mobileTableHeading text-center sm:pt-48 sm:pb-24 pt-24">
+      <h1 className="headText text-center pt-36">
         Photo Quality & Display Media
       </h1>
 
-      <section className="sm:border sm:border-thin sm:rounded-xl sm:shadow-2xl sm:inline hidden mb-20 w-7xl sm:border-gray-600 sm:shadow-gray-600">
+      <section className="sm:border sm:border-thin sm:rounded-xl sm:shadow-2xl sm:inline hidden sm:max-w-7xl sm:border-gray-600 sm:shadow-gray-600">
         <table>
           <thead>
             <tr>
@@ -284,7 +289,7 @@ const Home = () => {
               <p className="text-center font-semibold text-xl">
                 5+ Copies: ${priceFiveCopies.toFixed(2)}
               </p>
-              <p className="text-center  font-semibold text-3xl mt-8">
+              <p className="text-center font-semibold text-3xl mt-8">
                 <Link
                   href="https://www.digitalartsstudio.com/"
                   target="_blank"

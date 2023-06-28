@@ -13,15 +13,16 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="sm:flex sm:flex-row flex-col  pt-6 pb-2 bg-[#191717] w-full px-12 sticky top-0 justify-evenly items-center">
-      <div className="flex items-center">
+    <nav className="sm:flex sm:flex-row flex-col py-6 bg-[#191717] w-full px-12 sticky top-0 justify-evenly items-center">
+      <div>
         <img
           src="https://www.digitalartsstudio.net/wp-content/uploads/2020/12/digital-arts-studio-animated-logo-no-loop.gif"
           alt="Digital Arts Studio Logo"
           width={450}
+          className="2xl:w-[450px] w-[275px]"
         />
       </div>
-      <div className="sm:flex hidden px-2 text-white space-x-5 text-xl font-light items-center">
+      <div className="sm:flex hidden text-white space-x-5 2xl:text-xl text-lg font-light">
         <IoLocationOutline className="mr-1" /> 1082 Huff Rd NW B Atlanta, GA
         30318{" "}
         <div className="flex items-center">
@@ -37,7 +38,7 @@ const Nav = () => {
           Home
         </Link>
       </div>
-      <div className="flex items-center justify-center pt-6 sm:py-auto ">
+      <div>
         {pathname === "/cancalc" ? (
           <Link href="/" className="">
             <button type="button" className="glowingButton -rotate-1 uppercase">
@@ -55,7 +56,6 @@ const Nav = () => {
           </Link>
         )}
       </div>
-      <div className="flex justify-center items-center"></div>
     </nav>
   );
 };
