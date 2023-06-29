@@ -41,8 +41,10 @@ const canCalc = () => {
   const borders = "flex flex-col justify-between m-2 border rounded-xl ";
 
   return (
-    <section className="flex flex-col items-center space-y-10 sm:space-y-20 mt-16 ">
-      <h1 className="headText text-center max-w-7xl ">Canvas Calculator</h1>
+    <section className="flex flex-col items-center space-y-10 sm:mt-10 mt-6 ">
+      <h1 className="tableHeading text-center sm:max-w-7xl ">
+        Canvas Calculator
+      </h1>
       <p className="px-4 sm:px-auto text-center text-xl max-w-7xl">
         Chromata LYVE by Breathing Color is the best fine art, archival canvas
         available for printmaking on the market. Chromata LYVE is a 20.5 mil
@@ -50,7 +52,7 @@ const canCalc = () => {
         brightner additives (OBAs). The fine tooth canvas prints details well
         with an exceptional color gamut and high dmax.
       </p>
-      <div className="flex w-full justify-center items-center sm:px-auto px-6">
+      <div className="flex w-full justify-center items-center sm:px-auto px-8">
         <ul className="space-y-2 list-disc">
           <li>
             Prices include choice of protective varnish: matte, satin or gloss.
@@ -72,7 +74,7 @@ const canCalc = () => {
         </ul>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center sm:space-x-20">
+      <div className="flex flex-wrap justify-center items-center space-y-24 sm:space-y-0 sm:space-x-20">
         <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 ">
           <div className="h-[64px]">
             <h2 className="underline underline-offset-[8px] decoration-purple">
@@ -125,15 +127,20 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 p-12 space-y-6">
-        <div className="flex">
+      <div className="flex sm:w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 p-12 space-y-6 sm:mt-auto">
+        <div className="flex flex-col sm:flex-row space-y-6 sm:space-y-0">
           <h3 className="hidden sm:inline-block text-center rotate-3">
             Ready To Hang Or Frame!
           </h3>
           <h2 className="underline underline-offset-[8px] decoration-purple mb-3 text-center leading-10">
             Stretched Options
           </h2>
-
+          <h3 className="sm:hidden inline-block text-center underline decoration-purple underline-offset-[5px] ">
+            Includes Stretcher Bar
+          </h3>
+          <h3 className="sm:hidden inline-block text-center">
+            Ready To Hang Or Frame!
+          </h3>
           <h3 className="hidden sm:inline-block text-center underline decoration-purple underline-offset-[5px] -rotate-3">
             Includes Stretcher Bar
           </h3>

@@ -59,7 +59,7 @@ body {
 }
 
 .tableHeading {
-  @apply text-3xl underline underline-offset-[10px] decoration-purple text-white tracking-[20px] uppercase;
+  @apply sm:text-3xl text-2xl leading-10 underline underline-offset-[8px] decoration-purple text-white tracking-[10px] sm:tracking-[20px] uppercase;
 }
 
 .desc {

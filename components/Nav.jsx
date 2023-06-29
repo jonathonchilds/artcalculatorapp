@@ -13,7 +13,7 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="sm:flex sm:flex-row flex-col py-6 bg-[#191717] w-full px-12 sticky top-0 justify-evenly items-center">
+    <nav className="sm:flex sm:flex-row flex-col justify-center text-center space-y-6 sm:space-y-0 py-6 bg-[#191717] w-full px-12 sticky top-0 sm:justify-evenly items-center">
       <div className="sm:flex hidden text-white w-[400px] text-3xl font-light tracking-[10px]">
         (866) 352-9779
       </div>
@@ -27,7 +27,10 @@ const Nav = () => {
           />
         </Link>
       </div>
-      <div className="w-[400px] flex justify-center">
+      <div className="sm:hidden text-white text-xl font-light tracking-[8px]">
+        (866) 352-9779
+      </div>
+      <div className="sm:w-[400px] flex p-2 sm:p-auto justify-center">
         <div>
           {pathname === "/cancalc" ? (
             <Link href="/" className="">
