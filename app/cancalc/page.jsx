@@ -127,8 +127,8 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-      <div className="flex sm:w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 p-12 space-y-6 sm:mt-auto">
-        <div className="flex flex-col sm:flex-row space-y-6 sm:space-y-0">
+      <div className="flex sm:w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl w-[350px] p-6 border-gray-600 sm:p-12 sm:space-y-6 sm:mt-auto">
+        <div className="flex flex-col sm:flex-row mb-6 sm:mb-auto sm:space-y-0">
           <h3 className="hidden sm:inline-block text-center rotate-3">
             Ready To Hang Or Frame!
           </h3>
