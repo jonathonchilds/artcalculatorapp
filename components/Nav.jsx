@@ -2,54 +2,55 @@
 
 import { AiOutlinePhone } from "react-icons/ai";
 import { IoLocationOutline } from "react-icons/io5";
+import { BsGlobe2 } from "react-icons/bs";
 
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import "../styles/glowButton.css";
 
 const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col w-full pt-3">
-      <div className="flex w-full justify-between">
-        <div className="flex items-center">
-          <Link href="/" className="bg-[#ff5059] p-4 border-2 rounded-xl">
-            <Image
-              src="/assets/logo.png"
-              alt="Digital Arts Studio Logo"
-              width={100}
-              height={100}
-              className="object-contain"
-            />
-          </Link>
-        </div>
-        <div className="sm:flex hidden justify-center items-center">
-          <IoLocationOutline className="text-xl ml-2 mr-1" /> 1082 Huff Rd NW B
-          Atlanta, GA 30318 <AiOutlinePhone className="text-xl ml-2 mr-1" />{" "}
-          866-352-9779
-        </div>
-        <div className="flex items-center justify-center ">
+    <nav className="sm:flex sm:flex-row flex-col justify-center text-center space-y-6 sm:space-y-0 py-6 bg-[#191717] w-full px-12 sticky top-0 sm:justify-evenly items-center">
+      <div className="sm:flex hidden text-white w-[400px] text-3xl font-light tracking-[10px]">
+        (866) 352-9779
+      </div>
+      <div>
+        <Link href="https://www.digitalartsstudio.net/" target="_blank">
+          <img
+            src="https://www.digitalartsstudio.net/wp-content/uploads/2020/12/digital-arts-studio-animated-logo-no-loop.gif"
+            alt="Digital Arts Studio Logo"
+            width={450}
+            className="2xl:w-[450px] w-[275px]"
+          />
+        </Link>
+      </div>
+      <div className="sm:hidden text-white text-xl font-light tracking-[8px]">
+        (866) 352-9779
+      </div>
+      <div className="sm:w-[400px] flex p-2 sm:p-auto justify-center">
+        <div>
           {pathname === "/cancalc" ? (
             <Link href="/" className="">
-              <button type="button" className="outline_btn ">
+              <button
+                type="button"
+                className="glowingButton -rotate-1 uppercase"
+              >
                 Print Cost Calculator
               </button>
             </Link>
           ) : (
             <Link href="/cancalc">
-              <button type="button" className="outline_btn">
+              <button
+                type="button"
+                className="glowingButton -rotate-1 uppercase "
+              >
                 Canvas Calculator
               </button>
             </Link>
           )}
-        </div>
-        <div className="flex justify-center items-center">
-          <Link href="https://www.digitalartsstudio.net/" target="_blank">
-            <button type="button" className="outline_btn">
-              Main Site
-            </button>
-          </Link>
         </div>
       </div>
     </nav>

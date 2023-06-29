@@ -34,149 +34,153 @@ const canCalc = () => {
     ((width * height) / 144) * handAppliedTexturizingBrushstrokesMultiplier;
 
   function roundToTwo(num) {
-    return +(Math.round(num + "e+2") + "e-2");
+    const numBeforeFixed = +(Math.round(num + "e+2") + "e-2");
+    return numBeforeFixed.toFixed(2);
   }
 
-  const borders = "border rounded-xl m-2 flex flex-col justify-between";
-
-  const lastParagraphs = "pb-6 text-center font-bold text-lg";
+  const borders = "flex flex-col justify-between m-2 border rounded-xl ";
 
   return (
-    <section className="mb-16 w-full flex-center flex-col">
-      <h1 className="head_text  text-center">Canvas Calculator</h1>
-      <p className="my-16 text-center text-gray-600">
+    <section className="flex flex-col items-center space-y-10 sm:mt-10 mt-6 ">
+      <h1 className="tableHeading text-center sm:max-w-7xl ">
+        Canvas Calculator
+      </h1>
+      <p className="px-4 sm:px-auto text-center text-xl max-w-7xl">
         Chromata LYVE by Breathing Color is the best fine art, archival canvas
         available for printmaking on the market. Chromata LYVE is a 20.5 mil
         white matte canvas. It is an archival giclee canvas free of optical
         brightner additives (OBAs). The fine tooth canvas prints details well
         with an exceptional color gamut and high dmax.
       </p>
-      <div className="flex sm:flex-between sm:mx-4 flex-wrap justify-center mb-24 ">
-        <div className=" sm:mx-4 w-80 h-auto border rounded-xl p-8 shadow-lg">
-          <h2 className="pb-8 text-center font-bold text-xl">
-            Enter Image Size
-          </h2>
-          <div className="flex flex-col">
-            <label className="text-center text-xs text-gray-600 pb-2">
-              Image Width
-            </label>
-            <input
-              type="number"
-              className="rounded-xl p-4 my-3 mb-5 mt-1 border-2 text-center "
-              onChange={(e) => {
-                setImageWidth(e.target.value);
-              }}
-            />
-            <label className="text-center text-xs text-gray-600 pb-2 mt-4">
-              Image Height
-            </label>
-            <input
-              type="number"
-              className="rounded-xl p-4 my-3 mt-1 border-2 text-center"
-              onChange={(e) => {
-                setImageHeight(e.target.value);
-              }}
-            />
+      <div className="flex w-full justify-center items-center sm:px-auto px-8">
+        <ul className="space-y-2 list-disc">
+          <li>
+            Prices include choice of protective varnish: matte, satin or gloss.
+          </li>
+          <li>
+            A 10% DISCOUNT is available for 5 or more of same image and size.
+            See price list for bulk order options
+          </li>
+          <li>Maximum image width for LYVE is 54” on 60” roll size.</li>
+          <li>
+            PLEASE NOTE: 36” x 48” is the largest stretched canvas that can be
+            shipped via UPS.
+          </li>
+          <li>
+            Standard turnaround is 3-4 days. Stretching and/or texturizing may
+            add additional time.
+          </li>
+          <li>RUSH SERVICE AVAILABLE - CALL US TO SCHEDULE!</li>
+        </ul>
+      </div>
+
+      <div className="flex flex-wrap justify-center items-center space-y-24 sm:space-y-0 sm:space-x-20">
+        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 ">
+          <div className="h-[64px]">
+            <h2 className="underline underline-offset-[8px] decoration-purple">
+              Image
+            </h2>
+          </div>
+          <input
+            type="number"
+            placeholder="Width"
+            className="inputFields h-[61.5px]"
+            onChange={(e) => {
+              setImageWidth(e.target.value);
+            }}
+          />
+          <input
+            type="number"
+            placeholder="Height"
+            className="inputFields h-[61.5px]"
+            onChange={(e) => {
+              setImageHeight(e.target.value);
+            }}
+          />
+        </div>
+        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 text-center">
+          <div>
+            <h2 className="underline underline-offset-[8px] decoration-purple mb-3">
+              Print Only
+            </h2>
+            <h3 className="text-center">Rolled & Unstretched</h3>
+          </div>
+          <div>
+            <span className="text-xl">
+              With 2" Border{" "}
+              <div className=" text-purple text-2xl">
+                {imageHeight && imageWidth
+                  ? `$${roundToTwo(unstretchedTwoInchBorder)}`
+                  : "$0.00"}
+              </div>
+            </span>
+          </div>
+          <div>
+            <span className="text-xl">
+              With 3" Border{" "}
+              <div className=" text-purple text-2xl">
+                {imageHeight && imageWidth
+                  ? `$${roundToTwo(unstretchedThreeInchBorder)}`
+                  : "$0.00"}{" "}
+              </div>
+            </span>
           </div>
         </div>
       </div>
-      <div className="mb-24 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-8 ">
-        <div>
-          <h2 className="pb-4 text-center font-bold text-xl">
-            Print Only (Rolled)
+      <div className="flex sm:w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl w-[350px] p-6 border-gray-600 sm:p-12 sm:space-y-6 sm:mt-auto">
+        <div className="flex flex-col sm:flex-row mb-6 sm:mb-auto sm:space-y-0">
+          <h3 className="hidden sm:inline-block text-center rotate-3">
+            Ready To Hang Or Frame!
+          </h3>
+          <h2 className="underline underline-offset-[8px] decoration-purple mb-3 text-center leading-10">
+            Stretched Options
           </h2>
+          <h3 className="sm:hidden inline-block text-center underline decoration-purple underline-offset-[5px] ">
+            Includes Stretcher Bar
+          </h3>
+          <h3 className="sm:hidden inline-block text-center">
+            Ready To Hang Or Frame!
+          </h3>
+          <h3 className="hidden sm:inline-block text-center underline decoration-purple underline-offset-[5px] -rotate-3">
+            Includes Stretcher Bar
+          </h3>
         </div>
-        <div className="flex ">
-          <div className={`${borders} m-4`}>
-            <p className="text-center p-4">Unstretched w/ 2" Border</p>
-            <p className="pb-6 text-center text-xl">
-              {imageHeight && imageWidth
-                ? `$${roundToTwo(unstretchedTwoInchBorder)}`
-                : "$0.00"}
-            </p>
-          </div>
-          <div className={`${borders} m-4`}>
-            <p className="text-center p-4">Unstretched w/ 3" Border</p>
-            <p className="pb-6 text-center text-xl">
-              {imageHeight && imageWidth
-                ? `$${roundToTwo(unstretchedThreeInchBorder)}`
-                : "$0.00"}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="mb-16 sm:mx-4 border w-auto h-auto rounded-xl justify-center flex flex-col shadow-lg  p-2 min-h-max">
-        <div>
-          <h2 className="p-6 text-center font-bold text-xl">
-            Stretched Options - Ready To Hang Or Frame (includes stretcher bar)
-          </h2>
-        </div>
-        <div className="flex flex-col sm:flex-row">
-          <div className={`${borders} m-4`}>
-            <p className="text-center p-4 ">Standard Framing Depth</p>
-            <p className="text-center p-4 ">3/4"</p>
-            <p className="p-2 text-center text-xl">
+        <ul className="space-y-5 text-xl text-center">
+          <li>
+            Standard Framing Depth (3/4"){" "}
+            <div className=" text-purple text-2xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedStandardFramingDepth)}`
-                : "$0.00"}
-            </p>
-          </div>
-          <div className={`${borders} flex flex-col content-between m-4`}>
-            <p className="text-center p-4 ">Standard Gallery Wrap</p>
-            <p className="text-center p-4 ">1 1/4"</p>
-            <p className="p-2 text-center text-xl">
+                : "$0.00"}{" "}
+            </div>
+          </li>
+          <li>
+            Standard Gallery Wrap (1-1/4"){" "}
+            <div className="text-purple text-2xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedStandardGalleryWrap)}`
                 : "$0.00"}
-            </p>
-          </div>
-          <div className={`${borders} m-4`}>
-            <p className="text-center p-4 ">Deep Gallery Wrap</p>
-            <p className="text-center p-4 ">2"</p>
-            <p className="p-2 text-center text-xl">
+            </div>
+          </li>
+          <li>
+            Deep Gallery Wrap (2"){" "}
+            <div className="text-purple text-2xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedDeepGalleryWrap)}`
                 : "$0.00"}
-            </p>
-          </div>
-          <div className={`${borders} m-4 `}>
-            <p className="text-center p-2">
-              Add for hand-applied, texturizing brushstrokes. <br /> (3D
-              realistic feel of a real painting on canvas)
-            </p>
-            <p className="p-2 text-center text-xl">
+            </div>
+          </li>
+          <li>
+            Add for hand-applied, texturizing brushstrokes. <br /> (3D realistic
+            feel of a real painting on canvas){" "}
+            <div className="text-purple text-2xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(handAppliedTexturizingBrushstrokes)}`
                 : "$0.00"}
-            </p>
-          </div>
-        </div>
+            </div>
+          </li>
+        </ul>
       </div>
-
-      <p className={`${lastParagraphs}`}>
-        Prices include choice of protective varnish: matte, satin or gloss.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        Prices are subject to change without notice.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        A 10% DISCOUNT is available for 5 or more of same image and size. See
-        Price List for Bulk Order Options
-      </p>
-      <p className={`${lastParagraphs}`}>
-        Maximum image width for LYVE is 54” on 60” roll size.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        PLEASE NOTE: 36” x 48” is the largest stretched canvas that can be
-        shipped via UPS.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        Standard turnaround is 3-4 days. Stretching and/or texturizing may add
-        additional time.
-      </p>
-      <p className={`${lastParagraphs}`}>
-        RUSH SERVICE AVAILABLE. CALL US TO SCHEDULE. (866) 352-9779
-      </p>
     </section>
   );
 };
