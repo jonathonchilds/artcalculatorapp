@@ -26,16 +26,16 @@ const queryDatabase = async (query) => {
 export async function GET() {
   try {
     const results = await queryDatabase("SELECT * FROM `papers`");
-    connection.end();
+
     return NextResponse.json(results);
   } catch (error) {
-    connection.end();
     console.error("Error executing query:", error);
     return new NextResponse(
       500,
       "An error occurred when querying the database."
     );
   }
+  connection.end();
 }
 
 // // id SERIAL PRIMARY KEY,
