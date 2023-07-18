@@ -48,7 +48,7 @@ const Home = () => {
 
   return (
     <section className="flex items-center flex-col space-y-24 mt-16">
-      <h1 className="tableHeading text-center ">Print Cost Calculator</h1>
+      <h1 className="tableHeading text-center ">Paper Prints</h1>
       <div className="sizingInputContainer">
         <div className=" h-[230px] flex flex-col justify-evenly items-center ">
           <div className="text-center">
@@ -116,11 +116,14 @@ const Home = () => {
         </h1>
         <h2 className="text-center">(Giclee)</h2>
         <p className="text-center text-md">
-          All Fine Art Papers are 100% archival cotton rag without optical
-          brightening agents or additives, printed with 12-color pigmented inks.
+          100% archival cotton rag without optical brightening agents or
+          additives.
+        </p>
+        <p className="text-center text-md">
+          Printed with 12-color, pigmented inks.
         </p>
         <p className="text-center text-md ">
-          Longevity tests estimate lightfastness for 100+ years.
+          Longevity tests estimate lightfastness for 100+ years!
         </p>
       </span>
       <section className="hidden sm:inline sm:w-7xl sm:shadow-2xl sm:shadow-gray-600 sm:border sm:border-thin sm:rounded-xl sm:border-gray-600 ">

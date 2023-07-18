@@ -41,41 +41,38 @@ const canCalc = () => {
   const borders = "flex flex-col justify-between m-2 border rounded-xl ";
 
   return (
-    <section className="flex flex-col items-center space-y-10 sm:mt-10 mt-6 ">
+    <section className="flex flex-col items-center sm:mt-10 mt-6 ">
       <h1 className="tableHeading text-center sm:max-w-7xl ">
         Canvas Calculator
       </h1>
-      <p className="px-4 sm:px-auto text-center text-xl max-w-7xl">
-        Chromata LYVE by Breathing Color is the best fine art, archival canvas
-        available for printmaking on the market. Chromata LYVE is a 20.5 mil
-        white matte canvas. It is an archival giclee canvas free of optical
-        brightner additives (OBAs). The fine tooth canvas prints details well
-        with an exceptional color gamut and high dmax.
+      <p className="px-4 sm:px-auto text-center text-xl max-w-7xl leading-10 mt-16 mb-28">
+        Chromata LYVE by Breathing Color - the top choice for fine art
+        printmaking. <br /> A 20.5 mil white matte canvas with archival quality,
+        this OBA-free giclee canvas delivers exceptional detail, vibrant colors,
+        and a high dmax.
       </p>
-      <div className="flex w-full justify-center items-center sm:px-auto px-8">
-        <ul className="space-y-2 list-disc">
-          <li>
-            Prices include choice of protective varnish: matte, satin or gloss.
-          </li>
-          <li>
-            A 10% DISCOUNT is available for 5 or more of same image and size.
-            See price list for bulk order options
-          </li>
-          <li>Maximum image width for LYVE is 54” on 60” roll size.</li>
-          <li>
-            PLEASE NOTE: 36” x 48” is the largest stretched canvas that can be
-            shipped via UPS.
-          </li>
-          <li>
-            Standard turnaround is 3-4 days. Stretching and/or texturizing may
-            add additional time.
-          </li>
-          <li>RUSH SERVICE AVAILABLE - CALL US TO SCHEDULE!</li>
-        </ul>
+      <div className="flex w-full flex-col justify-center items-center sm:px-auto px-8 mb-28 leading-10">
+        <span>
+          Prices include choice of protective varnish: matte, satin or gloss.
+        </span>
+        <span>
+          A 10% DISCOUNT is available for 5 or more of same image and size. See
+          price list for bulk order options
+        </span>
+        <span>Maximum image width for LYVE is 54” on 60” roll size.</span>
+        <span>
+          PLEASE NOTE: 36” x 48” is the largest stretched canvas that can be
+          shipped via UPS.
+        </span>
+        <span>
+          Standard turnaround is 3-4 days. Stretching and/or texturizing may add
+          additional time.
+        </span>
+        <span>RUSH SERVICE AVAILABLE - CALL US TO SCHEDULE!</span>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center space-y-24 sm:space-y-0 sm:space-x-20">
-        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 ">
+      <div className="flex flex-wrap justify-center items-center space-y-24 sm:space-y-0 sm:space-x-60 mb-40">
+        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border-2 rounded-2xl border-gray-600 ">
           <div className="h-[64px]">
             <h2 className="underline underline-offset-[8px] decoration-purple">
               Image
@@ -98,7 +95,7 @@ const canCalc = () => {
             }}
           />
         </div>
-        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border rounded-2xl border-gray-600 text-center">
+        <div className="flex flex-col justify-evenly items-center h-[325px] w-[325px] shadow-2xl shadow-gray-600 border-2 rounded-2xl border-gray-600 text-center">
           <div>
             <h2 className="underline underline-offset-[8px] decoration-purple mb-3">
               Print Only
@@ -127,28 +124,29 @@ const canCalc = () => {
           </div>
         </div>
       </div>
-      <div className="flex sm:w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border rounded-2xl w-[350px] p-6 border-gray-600 sm:p-12 sm:space-y-6 sm:mt-auto">
-        <div className="flex flex-col sm:flex-row mb-6 sm:mb-auto sm:space-y-0">
+      <div className="flex sm:w-[750px] justify-evenly flex-col shadow-2xl shadow-gray-600 border-2 rounded-2xl w-[350px] p-6 border-gray-600 sm:p-12 sm:space-y-6 sm:mt-auto">
+        <div className="flex flex-col sm:flex-row mb-6 sm:my-10  sm:space-x-8">
           <h3 className="hidden sm:inline-block text-center rotate-3">
             Ready To Hang Or Frame!
           </h3>
-          <h2 className="underline underline-offset-[8px] decoration-purple mb-3 text-center leading-10">
+          <h2 className="underline underline-offset-[8px] decoration-purple mb-3 text-center leading-10 my-8 sm:my-auto">
             Stretched Options
           </h2>
-          <h3 className="sm:hidden inline-block text-center underline decoration-purple underline-offset-[5px] ">
-            Includes Stretcher Bar
-          </h3>
+
           <h3 className="sm:hidden inline-block text-center">
             Ready To Hang Or Frame!
+          </h3>
+          <h3 className="sm:hidden inline-block text-center text-sm">
+            (Includes Stretcher Bar)
           </h3>
           <h3 className="hidden sm:inline-block text-center underline decoration-purple underline-offset-[5px] -rotate-3">
             Includes Stretcher Bar
           </h3>
         </div>
-        <ul className="space-y-5 text-xl text-center">
+        <ul className="space-y-10 text-xl text-center">
           <li>
             Standard Framing Depth (3/4"){" "}
-            <div className=" text-purple text-2xl">
+            <div className=" pt-4 text-purple text-2xl">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedStandardFramingDepth)}`
                 : "$0.00"}{" "}
@@ -156,7 +154,7 @@ const canCalc = () => {
           </li>
           <li>
             Standard Gallery Wrap (1-1/4"){" "}
-            <div className="text-purple text-2xl">
+            <div className="text-purple text-2xl pt-4">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedStandardGalleryWrap)}`
                 : "$0.00"}
@@ -164,7 +162,7 @@ const canCalc = () => {
           </li>
           <li>
             Deep Gallery Wrap (2"){" "}
-            <div className="text-purple text-2xl">
+            <div className="text-purple text-2xl pt-4">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(stretchedDeepGalleryWrap)}`
                 : "$0.00"}
@@ -173,7 +171,7 @@ const canCalc = () => {
           <li>
             Add for hand-applied, texturizing brushstrokes. <br /> (3D realistic
             feel of a real painting on canvas){" "}
-            <div className="text-purple text-2xl">
+            <div className="text-purple text-2xl pt-4">
               {imageHeight && imageWidth
                 ? `$${roundToTwo(handAppliedTexturizingBrushstrokes)}`
                 : "$0.00"}

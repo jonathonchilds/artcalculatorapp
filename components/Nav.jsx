@@ -13,7 +13,7 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="sm:flex sm:flex-row flex-col justify-center text-center space-y-6 sm:space-y-0 py-6 bg-[#191717] w-full px-12 sm:sticky sm:top-0 sm:justify-evenly items-center">
+    <nav className="sm:flex sm:flex-row flex-col justify-center text-center space-y-6 sm:space-y-0 py-10 bg-[#191717] w-full px-12 sm:sticky sm:top-0 sm:justify-evenly items-center">
       <div className="sm:flex hidden text-white w-[400px] text-3xl font-light tracking-[10px]">
         (866) 352-9779
       </div>
@@ -36,18 +36,18 @@ const Nav = () => {
             <Link href="/" className="">
               <button
                 type="button"
-                className="glowingButton -rotate-1 uppercase"
+                className="glowingButton -rotate-1 uppercase font-bold text-lg"
               >
-                Print Cost Calculator
+                Paper Prints, <br /> Click Here!
               </button>
             </Link>
           ) : (
             <Link href="/cancalc">
               <button
                 type="button"
-                className="glowingButton -rotate-1 uppercase "
+                className="glowingButton -rotate-1 uppercase font-bold text-lg"
               >
-                Canvas Calculator
+                For Canvases, <br /> Click Here!
               </button>
             </Link>
           )}
