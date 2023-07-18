@@ -36,18 +36,18 @@ const Nav = () => {
             <Link href="/" className="">
               <button
                 type="button"
-                className="glowingButton -rotate-1 uppercase"
+                className="glowingButton -rotate-1 uppercase font-bold text-lg"
               >
-                Print Cost Calculator
+                Paper Prints, <br /> Click Here!
               </button>
             </Link>
           ) : (
             <Link href="/cancalc">
               <button
                 type="button"
-                className="glowingButton -rotate-1 uppercase "
+                className="glowingButton -rotate-1 uppercase font-bold text-lg"
               >
-                Canvas Calculator
+                For Canvases, <br /> Click Here!
               </button>
             </Link>
           )}
