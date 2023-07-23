@@ -1,34 +1,24 @@
 "use client";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppStateContext } from "@app/Provider";
 import Link from "next/link";
 
 const Home = () => {
-  const [imageWidth, setImageWidth] = useState(0);
-  const [imageHeight, setImageHeight] = useState(0);
-  const [borderWidth, setBorderWidth] = useState(0);
-  const [borderHeight, setBorderHeight] = useState(0);
-  const [fineArtPapers, setFineArtPapers] = useState([]);
-  const [photoQualityPapers, setPhotoQualityPapers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("/api/data")
-      .then((response) => response.json())
-      .then((data) => {
-        const fineArtPapers = data.filter(
-          (paper) => paper.category === "Fine Art"
-        );
-        const photoQualityPapers = data.filter(
-          (paper) => paper.category === "Photo"
-        );
-        setFineArtPapers(fineArtPapers);
-        setPhotoQualityPapers(photoQualityPapers);
-        setIsLoading(false);
-      })
-      .catch((error) => console.error("Error fetching data: ", error));
-  }, []);
+  const {
+    borderWidth,
+    borderHeight,
+    imageWidth,
+    imageHeight,
+    setBorderWidth,
+    setBorderHeight,
+    setImageWidth,
+    setImageHeight,
+    fineArtPapers,
+    photoQualityPapers,
+    isLoading,
+  } = useContext(AppStateContext);
 
   const finalWidth = +imageWidth + +borderWidth * 2;
   const finalHeight = +imageHeight + +borderHeight * 2;
@@ -49,6 +39,14 @@ const Home = () => {
   return (
     <section className="flex items-center flex-col space-y-24 mt-16">
       <h1 className="tableHeading text-center ">Paper Prints</h1>
+      <Link
+        href="/printableTable"
+        target="_blank"
+        as={"/printableTable"}
+        className="font-bold bg-purple border-2 border-slate-600 p-2 rounded-lg"
+      >
+        Print Page
+      </Link>
       <div className="sizingInputContainer">
         <div className=" h-[230px] flex flex-col justify-evenly items-center ">
           <div className="text-center">

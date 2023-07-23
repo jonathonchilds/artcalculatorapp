@@ -2,6 +2,7 @@ import Nav from "@components/Nav";
 import "@styles/globals.css";
 import React from "react";
 import { Orbitron } from "next/font/google";
+import { Provider } from "@app/Provider";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -22,8 +23,10 @@ const RootLayout = ({ children }) => {
           <div className="gradient" />
         </div>
         <main className="app">
-          <Nav />
-          {children}
+          <Provider>
+            <Nav />
+            {children}
+          </Provider>
         </main>
       </body>
     </html>
