@@ -41,7 +41,6 @@ const Home = () => {
       <h1 className="tableHeading text-center ">Paper Prints</h1>
       <Link
         href="/printableTable"
-        target="_blank"
         as={"/printableTable"}
         className="font-bold bg-purple border-2 border-slate-600 p-2 rounded-lg"
       >

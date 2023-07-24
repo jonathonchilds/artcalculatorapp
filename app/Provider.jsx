@@ -47,7 +47,7 @@ export const Provider = ({ children }) => {
 
   return (
     <AppStateContext.Provider value={appState}>
-      {isLoading ? <div>Loading...</div> : children}
+      {children}
     </AppStateContext.Provider>
   );
 };
