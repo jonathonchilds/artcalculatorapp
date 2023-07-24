@@ -55,7 +55,7 @@ const Home = () => {
           <div className="space-x-3">
             <input
               type="number"
-              placeholder="Width"
+              placeholder={imageWidth}
               className="inputFields"
               onChange={(e) => {
                 setImageWidth(e.target.value);
@@ -63,7 +63,7 @@ const Home = () => {
             />
             <input
               type="number"
-              placeholder="Height"
+              placeholder={imageHeight}
               className="inputFields"
               onChange={(e) => {
                 setImageHeight(e.target.value);
@@ -80,7 +80,7 @@ const Home = () => {
             <input
               type="number"
               inputMode="numeric"
-              placeholder="Width"
+              placeholder={borderWidth}
               className="inputFields"
               onChange={(e) => {
                 setBorderWidth(e.target.valueAsNumber);
@@ -89,7 +89,7 @@ const Home = () => {
             <input
               type="number"
               inputMode="numeric"
-              placeholder="Height"
+              placeholder={borderHeight}
               className="inputFields"
               onChange={(e) => {
                 setBorderHeight(e.target.valueAsNumber);
