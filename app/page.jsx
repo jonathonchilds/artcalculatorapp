@@ -1,34 +1,24 @@
 "use client";
 
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppStateContext } from "@app/Provider";
 import Link from "next/link";
 
 const Home = () => {
-  const [imageWidth, setImageWidth] = useState(0);
-  const [imageHeight, setImageHeight] = useState(0);
-  const [borderWidth, setBorderWidth] = useState(0);
-  const [borderHeight, setBorderHeight] = useState(0);
-  const [fineArtPapers, setFineArtPapers] = useState([]);
-  const [photoQualityPapers, setPhotoQualityPapers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("/api/data")
-      .then((response) => response.json())
-      .then((data) => {
-        const fineArtPapers = data.filter(
-          (paper) => paper.category === "Fine Art"
-        );
-        const photoQualityPapers = data.filter(
-          (paper) => paper.category === "Photo"
-        );
-        setFineArtPapers(fineArtPapers);
-        setPhotoQualityPapers(photoQualityPapers);
-        setIsLoading(false);
-      })
-      .catch((error) => console.error("Error fetching data: ", error));
-  }, []);
+  const {
+    borderWidth,
+    borderHeight,
+    imageWidth,
+    imageHeight,
+    setBorderWidth,
+    setBorderHeight,
+    setImageWidth,
+    setImageHeight,
+    fineArtPapers,
+    photoQualityPapers,
+    isLoading,
+  } = useContext(AppStateContext);
 
   const finalWidth = +imageWidth + +borderWidth * 2;
   const finalHeight = +imageHeight + +borderHeight * 2;
@@ -49,6 +39,7 @@ const Home = () => {
   return (
     <section className="flex items-center flex-col space-y-24 mt-16">
       <h1 className="tableHeading text-center ">Paper Prints</h1>
+
       <div className="sizingInputContainer">
         <div className=" h-[230px] flex flex-col justify-evenly items-center ">
           <div className="text-center">
@@ -58,7 +49,7 @@ const Home = () => {
           <div className="space-x-3">
             <input
               type="number"
-              placeholder="Width"
+              placeholder={imageWidth}
               className="inputFields"
               onChange={(e) => {
                 setImageWidth(e.target.value);
@@ -66,7 +57,7 @@ const Home = () => {
             />
             <input
               type="number"
-              placeholder="Height"
+              placeholder={imageHeight}
               className="inputFields"
               onChange={(e) => {
                 setImageHeight(e.target.value);
@@ -83,7 +74,7 @@ const Home = () => {
             <input
               type="number"
               inputMode="numeric"
-              placeholder="Width"
+              placeholder={borderWidth}
               className="inputFields"
               onChange={(e) => {
                 setBorderWidth(e.target.valueAsNumber);
@@ -92,7 +83,7 @@ const Home = () => {
             <input
               type="number"
               inputMode="numeric"
-              placeholder="Height"
+              placeholder={borderHeight}
               className="inputFields"
               onChange={(e) => {
                 setBorderHeight(e.target.valueAsNumber);
@@ -100,16 +91,24 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="h-[230px] flex flex-col justify-evenly items-center ">
-          <h2 className="h-[56px]">Final Sheet</h2>
-          <span className="sm:text-4xl text-xl h-[53px] font-semibold flex items-center">
+        <div className="flex flex-col justify-evenly items-center ">
+          <h2>Final Sheet</h2>
+          <span className="sm:text-4xl text-xl h-[53px] flex items-center">
             <div>
               {finalWidth ? finalWidth : "0"} x{" "}
               {finalHeight ? finalHeight : "0"}
             </div>
           </span>
         </div>
+        <Link
+          href="/printableTable"
+          as={"/printableTable"}
+          className="font-bold bg-purple border-2 border-slate-600 py-4 px-8 rounded-lg"
+        >
+          Print Page
+        </Link>
       </div>
+
       <span className="space-y-8">
         <h1 className="tableHeading mt-16 text-center">
           Archival Fine Art Papers

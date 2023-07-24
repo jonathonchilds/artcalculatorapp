@@ -1,6 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
+
+@media print {
+  .no-print {
+    display: none;
+  }
+  nav.no-print {
+    display: none;
+  }
+}
+
 @tailwind components;
 
 @tailwind utilities;
@@ -47,7 +57,7 @@ body {
 }
 
 .inputFields {
-  @apply outline-none bg-slate-400/10 rounded-2xl text-center border-b p-2 border-[#191717] shadow shadow-purple text-lightBlue sm:text-3xl text-xl sm:w-36 w-28 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
+  @apply outline-none bg-slate-400/10 rounded-lg text-center border-b p-2 border-[#191717] shadow shadow-purple text-lightBlue sm:text-3xl text-xl sm:w-36 w-28 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
 }
 
 .headText {
@@ -55,7 +65,7 @@ body {
 }
 
 .sizingInputContainer {
-  @apply flex flex-col sm:flex-row justify-center items-center border rounded-2xl border-gray-600 shadow-lg shadow-gray-600 sm:p-6 sm:space-x-16 p-5;
+  @apply flex flex-col sm:flex-row justify-center items-center border rounded-2xl border-gray-600 shadow-lg shadow-gray-600 sm:px-12 sm:space-x-16 p-5;
 }
 
 .tableHeading {
