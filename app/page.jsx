@@ -39,13 +39,7 @@ const Home = () => {
   return (
     <section className="flex items-center flex-col space-y-24 mt-16">
       <h1 className="tableHeading text-center ">Paper Prints</h1>
-      <Link
-        href="/printableTable"
-        as={"/printableTable"}
-        className="font-bold bg-purple border-2 border-slate-600 p-2 rounded-lg"
-      >
-        Print Page
-      </Link>
+
       <div className="sizingInputContainer">
         <div className=" h-[230px] flex flex-col justify-evenly items-center ">
           <div className="text-center">
@@ -97,16 +91,24 @@ const Home = () => {
             />
           </div>
         </div>
-        <div className="h-[230px] flex flex-col justify-evenly items-center ">
-          <h2 className="h-[56px]">Final Sheet</h2>
-          <span className="sm:text-4xl text-xl h-[53px] font-semibold flex items-center">
+        <div className="flex flex-col justify-evenly items-center ">
+          <h2>Final Sheet</h2>
+          <span className="sm:text-4xl text-xl h-[53px] flex items-center">
             <div>
               {finalWidth ? finalWidth : "0"} x{" "}
               {finalHeight ? finalHeight : "0"}
             </div>
           </span>
         </div>
+        <Link
+          href="/printableTable"
+          as={"/printableTable"}
+          className="font-bold bg-purple border-2 border-slate-600 py-4 px-8 rounded-lg"
+        >
+          Print Page
+        </Link>
       </div>
+
       <span className="space-y-8">
         <h1 className="tableHeading mt-16 text-center">
           Archival Fine Art Papers

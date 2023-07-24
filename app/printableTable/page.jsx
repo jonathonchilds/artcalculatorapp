@@ -31,44 +31,58 @@ const PrintableTable = () => {
 
   return (
     <div className="flex flex-col justify-center">
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Weight</th>
-            <th>Description</th>
-            <th>Each</th>
-            <th className="px-5">5+</th>
-          </tr>
-        </thead>
+      <button
+        className="text-2xl border w-20 rounded mx-auto p-2 bg-red no-print
+        "
+        onClick={() => window.print()}
+      >
+        Print
+      </button>
+
+      <h1 className="mx-auto mt-12 mb-4 text-2xl">Archival Fine Art Papers</h1>
+      <table className="max-w-4xl mx-auto text-center">
         <tbody>
-          {isLoading ? (
-            <tr>
-              <td colSpan="6">
-                <div className="text-center p-16">Loading...</div>
-              </td>
-            </tr>
-          ) : (
-            fineArtPapers.map((paper) => {
-              const priceEach = calculatePriceEach(
-                finalSheetSize,
-                paper.multiplier
-              );
-              const priceFiveCopies = roundToTwo(priceEach * 0.9);
-              return (
-                <tr key={paper.id}>
-                  <td className="px-5">{paper.paper_type}</td>
-                  <td>{paper.paper_weight}</td>
-                  <td>{paper.paper_description}</td>
-                  <td>${priceEach.toFixed(2)}</td>
-                  <td>${priceFiveCopies.toFixed(2)}</td>
-                </tr>
-              );
-            })
-          )}
+          {fineArtPapers.map((paper) => {
+            const priceEach = calculatePriceEach(
+              finalSheetSize,
+              paper.multiplier
+            );
+            const priceFiveCopies = roundToTwo(priceEach * 0.9);
+            return (
+              <tr key={paper.id} className="text-sm">
+                <td className="px-2 py-2">{paper.paper_type}</td>
+                <td className="px-2 py-2">{paper.paper_weight}</td>
+                <td className="px-2 py-2">{paper.paper_description}</td>
+                <td className="px-2 py-2">${priceEach.toFixed(2)}</td>
+                <td className="px-2 py-2">${priceFiveCopies.toFixed(2)}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
-      <button onClick={() => window.print()}>Print</button>
+      <h1 className="mx-auto mt-12 mb-4 text-2xl">
+        Photo Quality & Display Media
+      </h1>
+      <table className="max-w-4xl mx-auto text-center">
+        <tbody>
+          {photoQualityPapers.map((paper) => {
+            const priceEach = calculatePriceEach(
+              finalSheetSize,
+              paper.multiplier
+            );
+            const priceFiveCopies = roundToTwo(priceEach * 0.9);
+            return (
+              <tr key={paper.id} className="text-sm">
+                <td className="px-2 py-2">{paper.paper_type}</td>
+                <td className="px-2 py-2">{paper.paper_weight}</td>
+                <td className="px-2 py-2">{paper.paper_description}</td>
+                <td className="px-2 py-2">${priceEach.toFixed(2)}</td>
+                <td className="px-2 py-2">${priceFiveCopies.toFixed(2)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 };
