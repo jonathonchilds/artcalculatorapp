@@ -29,6 +29,9 @@ const PrintableTable = () => {
     return +(Math.round(num + "e+2") + "e-2");
   }
 
+  const tableDataStyles = "bg-white text-black px-4 py-2 border border-2 text-xs"
+  const tableHeadings = "bg-white text-black mx-auto mt-12 text-lg w-[500px] text-center py-2 border-2 "
+
   return (
     <div className="flex flex-col justify-center">
       <button
@@ -39,8 +42,8 @@ const PrintableTable = () => {
         Print
       </button>
 
-      <h1 className="mx-auto mt-12 mb-4 text-2xl">Archival Fine Art Papers</h1>
-      <table className="max-w-4xl mx-auto text-center">
+      <h1 className={tableHeadings}>Archival Fine Art Papers</h1>
+      <table className="max-w-4xl mx-auto text-center  ">
         <tbody>
           {fineArtPapers.map((paper) => {
             const priceEach = calculatePriceEach(
@@ -50,17 +53,17 @@ const PrintableTable = () => {
             const priceFiveCopies = roundToTwo(priceEach * 0.9);
             return (
               <tr key={paper.id} className="text-sm">
-                <td className="px-2 py-2">{paper.paper_type}</td>
-                <td className="px-2 py-2">{paper.paper_weight}</td>
-                <td className="px-2 py-2">{paper.paper_description}</td>
-                <td className="px-2 py-2">${priceEach.toFixed(2)}</td>
-                <td className="px-2 py-2">${priceFiveCopies.toFixed(2)}</td>
+                <td className={tableDataStyles}>{paper.paper_type}</td>
+                <td className={tableDataStyles}>{paper.paper_weight}</td>
+                <td className={tableDataStyles}>{paper.paper_description}</td>
+                <td className={tableDataStyles}>${priceEach.toFixed(2)}</td>
+                <td className={tableDataStyles}>${priceFiveCopies.toFixed(2)}</td>
               </tr>
             );
           })}
         </tbody>
       </table>
-      <h1 className="mx-auto mt-12 mb-4 text-2xl">
+      <h1 className={tableHeadings}>
         Photo Quality & Display Media
       </h1>
       <table className="max-w-4xl mx-auto text-center">
@@ -72,12 +75,12 @@ const PrintableTable = () => {
             );
             const priceFiveCopies = roundToTwo(priceEach * 0.9);
             return (
-              <tr key={paper.id} className="text-sm">
-                <td className="px-2 py-2">{paper.paper_type}</td>
-                <td className="px-2 py-2">{paper.paper_weight}</td>
-                <td className="px-2 py-2">{paper.paper_description}</td>
-                <td className="px-2 py-2">${priceEach.toFixed(2)}</td>
-                <td className="px-2 py-2">${priceFiveCopies.toFixed(2)}</td>
+              <tr key={paper.id} >
+                <td className={tableDataStyles}>{paper.paper_type}</td>
+                <td className={tableDataStyles}>{paper.paper_weight}</td>
+                <td className={tableDataStyles}>{paper.paper_description}</td>
+                <td className={tableDataStyles}>${priceEach.toFixed(2)}</td>
+                <td className={tableDataStyles}>${priceFiveCopies.toFixed(2)}</td>
               </tr>
             );
           })}
