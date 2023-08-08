@@ -69,7 +69,18 @@ body {
 }
 
 .tableHeading {
-  @apply sm:text-6xl text-2xl leading-10 underline underline-offset-[8px] decoration-purple text-white tracking-[10px] sm:tracking-[20px] uppercase mt-16;
+  position: relative;
+  @apply text-2xl leading-10 text-white tracking-[10px] sm:tracking-[15px] uppercase;
+}
+
+.tableHeading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: calc(100% - 14px);
+  height: 1px;
+  background-color: purple;
 }
 
 .desc {
