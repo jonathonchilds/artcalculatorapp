@@ -15,7 +15,7 @@ const navigationButton = (pathname) => {
     <Link href="/cancalc">
     <button
       type="button"
-      className="glowingButton uppercase "
+      className="items-center border-[1px] rounded-xl border-gray-600 shadow-lg shadow-slate-800 p-5 tracking-[5px] uppercase "
     >
       Canvas Prints
     </button>
