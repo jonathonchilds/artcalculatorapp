@@ -1,20 +1,55 @@
 "use client";
 
-import { AiOutlinePhone } from "react-icons/ai";
-import { IoLocationOutline } from "react-icons/io5";
-import { BsGlobe2 } from "react-icons/bs";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import "../styles/glowButton.css";
 
 const Nav = () => {
   const pathname = usePathname();
 
+const navigationButton = (pathname) => {
+  if (pathname === '/' )
+  {
+    return (
+    <Link href="/cancalc">
+    <button
+      type="button"
+      className="items-center border-[1px] rounded-xl border-gray-600 shadow-lg shadow-slate-800 p-5 tracking-[5px] uppercase "
+    >
+      Canvas Prints
+    </button>
+  </Link>)
+  }
+  if (pathname === '/cancalc') 
+  {
+    return (
+    <Link href="/" className="">
+    <button
+      type="button"
+      className="glowingButton uppercase "
+    >
+      Paper Prints
+    </button>
+  </Link>)
+  }
+  if (pathname === '/printableTable')
+  {
+    return (
+      <Link href="/" className="">
+      <button
+        type="button"
+        className="glowingButton uppercase"
+      >
+        Back
+      </button>
+    </Link>)
+  }
+}
+
   return (
     <nav className="sm:flex sm:flex-row flex-col justify-center text-center space-y-6 sm:space-y-0 py-10 bg-[#191717] w-full px-12 sm:sticky sm:top-0 sm:justify-evenly items-center sm:no-print no-print ">
-      <div className="sm:flex hidden text-white w-[400px] text-3xl font-light tracking-[10px]">
+      <div className="sm:flex hidden text-white w-[400px] text-2xl font-light tracking-[8px]">
         (866) 352-9779
       </div>
       <div>
@@ -32,25 +67,8 @@ const Nav = () => {
       </div>
       <div className="sm:w-[400px] flex p-2 sm:p-auto justify-center">
         <div>
-          {pathname === "/cancalc" ? (
-            <Link href="/" className="">
-              <button
-                type="button"
-                className="glowingButton -rotate-1 uppercase font-bold text-lg"
-              >
-                Paper Prints, <br /> Click Here!
-              </button>
-            </Link>
-          ) : (
-            <Link href="/cancalc">
-              <button
-                type="button"
-                className="glowingButton -rotate-1 uppercase font-bold text-lg"
-              >
-                For Canvases, <br /> Click Here!
-              </button>
-            </Link>
-          )}
+          {navigationButton(pathname)}
+        
         </div>
       </div>
     </nav>
