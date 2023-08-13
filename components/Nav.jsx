@@ -1,6 +1,5 @@
 "use client";
 
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "../styles/glowButton.css";
@@ -8,47 +7,38 @@ import "../styles/glowButton.css";
 const Nav = () => {
   const pathname = usePathname();
 
-const navigationButton = (pathname) => {
-  if (pathname === '/' )
-  {
-    return (
-    <Link href="/cancalc">
-    <button
-      type="button"
-      className="items-center border-[1px] rounded-xl border-gray-600 shadow-lg shadow-slate-800 p-5 tracking-[5px] uppercase "
-    >
-      Canvas Prints
-    </button>
-  </Link>)
-  }
-  if (pathname === '/cancalc') 
-  {
-    return (
-    <Link href="/" className="">
-    <button
-      type="button"
-      className="glowingButton uppercase "
-    >
-      Paper Prints
-    </button>
-  </Link>)
-  }
-  if (pathname === '/printableTable')
-  {
-    return (
-      <Link href="/" className="">
-      <button
-        type="button"
-        className="glowingButton uppercase"
-      >
-        Back
-      </button>
-    </Link>)
-  }
-}
+  const navigationButton = (pathname) => {
+    if (pathname === "/") {
+      return (
+        <Link href="/cancalc">
+          <button type="button" className="glowingButton uppercase ">
+            Canvas Prints
+          </button>
+        </Link>
+      );
+    }
+    if (pathname === "/cancalc") {
+      return (
+        <Link href="/" className="">
+          <button type="button" className="glowingButton uppercase ">
+            Paper Prints
+          </button>
+        </Link>
+      );
+    }
+    if (pathname === "/printableTable") {
+      return (
+        <Link href="/" className="">
+          <button type="button" className="glowingButton uppercase">
+            Back
+          </button>
+        </Link>
+      );
+    }
+  };
 
   return (
-    <nav className="sm:flex sm:flex-row flex-col justify-center text-center space-y-6 sm:space-y-0 py-10 bg-[#191717] w-full px-12 sm:sticky sm:top-0 sm:justify-evenly items-center sm:no-print no-print ">
+    <nav className="sm:flex sm:flex-row flex-col justify-center text-center space-y-6 sm:space-y-0 py-10 bg-[#191717] w-full px-12 sm:sticky sm:top-0 sm:justify-evenly items-center sm:no-print no-print z-10">
       <div className="sm:flex hidden text-white w-[400px] text-2xl font-light tracking-[8px]">
         (866) 352-9779
       </div>
@@ -66,10 +56,7 @@ const navigationButton = (pathname) => {
         (866) 352-9779
       </div>
       <div className="sm:w-[400px] flex p-2 sm:p-auto justify-center">
-        <div>
-          {navigationButton(pathname)}
-        
-        </div>
+        <div>{navigationButton(pathname)}</div>
       </div>
     </nav>
   );

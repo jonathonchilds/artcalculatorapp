@@ -37,7 +37,7 @@ const Home = () => {
   const cellBorder = "border-r border-t p-4 text-center";
 
   return (
-    <section className="flex items-center flex-col space-y-24 mt-16">
+    <section className="flex items-center flex-col space-y-24 mt-16 z-0">
       <h1 className="tableHeading text-center ">Paper Prints</h1>
 
       <div className="sizingInputContainer">

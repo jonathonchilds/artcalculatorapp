@@ -65,7 +65,7 @@ body {
 }
 
 .sizingInputContainer {
-  @apply flex flex-col sm:flex-row justify-center items-center border-[1px] rounded-xl border-gray-600 shadow-lg shadow-slate-800 sm:px-12 sm:space-x-16 p-5;
+  @apply flex flex-col lg:flex-row justify-center items-center border-[1px] rounded-xl border-gray-600 shadow-lg shadow-slate-800 lg:px-12 lg:space-x-16 p-5;
 }
 
 .tableHeading {
@@ -74,7 +74,7 @@ body {
 }
 
 .tableHeading::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 5px;
