@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <section className="flex items-center flex-col space-y-24 mt-16 z-0">
-      <h1 className="tableHeading text-center ">Paper Prints</h1>
+      <h1 className="tableHeading text-center ">Prints</h1>
 
       <div className="sizingInputContainer">
         <div className=" h-[230px] flex flex-col justify-evenly items-center ">

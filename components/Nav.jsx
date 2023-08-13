@@ -12,7 +12,7 @@ const Nav = () => {
       return (
         <Link href="/cancalc">
           <button type="button" className="glowingButton uppercase ">
-            Canvas Prints
+            Canvases
           </button>
         </Link>
       );
@@ -21,7 +21,7 @@ const Nav = () => {
       return (
         <Link href="/" className="">
           <button type="button" className="glowingButton uppercase ">
-            Paper Prints
+            Prints
           </button>
         </Link>
       );

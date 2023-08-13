@@ -25,7 +25,7 @@ input[type="number"] {
 }
 
 h2 {
-  @apply text-3xl uppercase  text-white leading-7 tracking-widest;
+  @apply text-2xl uppercase  text-white leading-7 tracking-widest;
 }
 
 th {
@@ -57,11 +57,11 @@ body {
 }
 
 .inputFields {
-  @apply outline-none bg-slate-400/10 rounded-lg text-center border-b p-2 border-[#191717] shadow shadow-purple text-lightBlue sm:text-3xl text-xl sm:w-36 w-28 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
+  @apply outline-none bg-slate-400/10 rounded-lg text-center border-b p-2 border-[#191717] shadow shadow-purple text-lightBlue text-xl  w-28 placeholder-gray-500 place-content-stretch transition-all focus:border-gray-400;
 }
 
 .headText {
-  @apply text-4xl sm:text-5xl text-center underline underline-offset-[5px] sm:underline-offset-[10px] decoration-purple text-white tracking-wide sm:tracking-[20px] uppercase;
+  @apply text-4xl lg:text-5xl text-center underline underline-offset-[5px] lg:underline-offset-[10px] decoration-purple text-white tracking-wide lg:tracking-[20px] uppercase;
 }
 
 .sizingInputContainer {
@@ -70,11 +70,12 @@ body {
 
 .tableHeading {
   position: relative;
-  @apply text-2xl leading-10 text-white tracking-[10px] sm:tracking-[15px] uppercase;
+  @apply text-3xl leading-10 text-white tracking-[10px] lg:tracking-[15px] uppercase;
 }
 
 .tableHeading::after {
   content: "";
+  display: block;
   position: absolute;
   left: 0;
   bottom: 5px;
@@ -84,19 +85,19 @@ body {
 }
 
 .desc {
-  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+  @apply mt-5 text-lg text-gray-600 lg:text-xl max-w-2xl;
 }
 
 .form_textarea {
-  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-lg text-gray-500 outline-0;
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex rounded-lg mt-2 p-3 text-lg text-gray-500 outline-0;
 }
 
 .logo_text {
-  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+  @apply max-lg:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
 }
 
 .flex-center {
