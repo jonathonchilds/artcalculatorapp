@@ -7,31 +7,31 @@ const canCalc = () => {
   const [imageHeight, setImageHeight] = useState(0);
 
   const printMultiplier = 16.75;
-  const stretchedStandardFramingDepthMultiplier = 1.2;
-  const stretchedStandardGalleryWrapMultiplier = 1.34;
-  const stretchedDeepGalleryWrapMultiplier = 1.62;
-  const handAppliedTexturizingBrushstrokelgultiplier = 15.0;
+  const standardFramingMultiplier = 1.2;
+  const galleryWrapMultiplier = 1.34;
+  const deepGalleryWrapMultiplier = 1.62;
+  const brushstrokesMultiplier = 15.0;
 
   const width = parseFloat(imageWidth);
   const height = parseFloat(imageHeight);
 
-  const unstretchedTwoInchBorder =
+  const twoInchBorder =
     (((width + 4) * (height + 4)) / 144) * printMultiplier;
-  const unstretchedThreeInchBorder =
+  const threeInchBorder =
     (((width + 6) * (height + 6)) / 144) * printMultiplier;
 
-  const stretchedStandardFramingDepth =
-    unstretchedTwoInchBorder +
-    (width + height) * stretchedStandardFramingDepthMultiplier;
-  const stretchedStandardGalleryWrap =
-    unstretchedTwoInchBorder +
-    (width + height) * stretchedStandardGalleryWrapMultiplier;
-  const stretchedDeepGalleryWrap =
-    unstretchedThreeInchBorder +
-    (width + height) * stretchedDeepGalleryWrapMultiplier;
+  const standardFraming =
+    twoInchBorder +
+    (width + height) * standardFramingMultiplier;
+  const galleryWrap =
+    twoInchBorder +
+    (width + height) * galleryWrapMultiplier;
+  const deepGalleryWrap =
+    threeInchBorder +
+    (width + height) * deepGalleryWrapMultiplier;
 
-  const handAppliedTexturizingBrushstrokes =
-    ((width * height) / 144) * handAppliedTexturizingBrushstrokelgultiplier;
+  const brushstrokes =
+    ((width * height) / 144) * brushstrokesMultiplier;
 
   function roundToTwo(num) {
     const numBeforeFixed = +(Math.round(num + "e+2") + "e-2");
@@ -94,7 +94,7 @@ const canCalc = () => {
               2" Border{" "}
               <div className=" text-purple text-2xl">
                 {imageHeight && imageWidth
-                  ? `$${roundToTwo(unstretchedTwoInchBorder)}`
+                  ? `$${roundToTwo(twoInchBorder)}`
                   : "$0.00"}
               </div>
             </span>
@@ -104,7 +104,7 @@ const canCalc = () => {
               3" Border{" "}
               <div className=" text-purple text-2xl">
                 {imageHeight && imageWidth
-                  ? `$${roundToTwo(unstretchedThreeInchBorder)}`
+                  ? `$${roundToTwo(threeInchBorder)}`
                   : "$0.00"}{" "}
               </div>
             </span>
@@ -133,7 +133,7 @@ const canCalc = () => {
             Standard Framing Depth (3/4"){" "}
             <div className=" pt-4 text-purple">
               {imageHeight && imageWidth
-                ? `$${roundToTwo(stretchedStandardFramingDepth)}`
+                ? `$${roundToTwo(standardFraming)}`
                 : "$0.00"}{" "}
             </div>
           </li>
@@ -141,7 +141,7 @@ const canCalc = () => {
             Standard Gallery Wrap (1-1/4"){" "}
             <div className="text-purple pt-4">
               {imageHeight && imageWidth
-                ? `$${roundToTwo(stretchedStandardGalleryWrap)}`
+                ? `$${roundToTwo(galleryWrap)}`
                 : "$0.00"}
             </div>
           </li>
@@ -149,7 +149,7 @@ const canCalc = () => {
             Deep Gallery Wrap (2"){" "}
             <div className="text-purple pt-4">
               {imageHeight && imageWidth
-                ? `$${roundToTwo(stretchedDeepGalleryWrap)}`
+                ? `$${roundToTwo(deepGalleryWrap)}`
                 : "$0.00"}
             </div>
           </li>
@@ -158,7 +158,7 @@ const canCalc = () => {
             feel of a real painting on canvas){" "}
             <div className="text-purple pt-4">
               {imageHeight && imageWidth
-                ? `$${roundToTwo(handAppliedTexturizingBrushstrokes)}`
+                ? `$${roundToTwo(brushstrokes)}`
                 : "$0.00"}
             </div>
           </li>
