@@ -1,0 +1,130 @@
+[
+  {
+    "id": 1,
+    "name": "Hahnemühle Photo Rag Ultrasmooth",
+    "weight": "305 gsm",
+    "description": "Smooth Matte Finish - Hot Press",
+    "price": 23.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 2,
+    "name": "Hahnemühle William Turner Watercolor",
+    "weight": "308 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "price": 23.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 3,
+    "name": "Hahnemühle Photo Rag Satin",
+    "weight": "310 gsm",
+    "description": "Subtle sheen in printed areas - Slight texture",
+    "price": 23.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 4,
+    "name": "Hahnemühle Photo Rag Pearl",
+    "weight": "320 gsm",
+    "description": "Luster finish, Vibrant colors - Slight texture",
+    "price": 23.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 5,
+    "name": "Hahnemühle Photo Rag Metallic",
+    "weight": "340 gsm",
+    "description": "The only cotton rag paper w/ a silver metallic base. Excellent for BW or color",
+    "price": 24.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 6,
+    "name": "Hahnemühle Photo Rag Baryta Gloss",
+    "weight": "320 gsm",
+    "description": "High Gloss finish, Vibrant colors – Slight texture",
+    "price": 23.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 7,
+    "name": "Arches Aquarelle Watercolor",
+    "weight": "240 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "price": 20.5,
+    "category": "Fine Art"
+  },
+  {
+    "id": 8,
+    "name": "BFK Rives Watercolor",
+    "weight": "310 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "price": 20.5,
+    "category": "Fine Art"
+  },
+  {
+    "id": 9,
+    "name": "Somerset Enhanced Velvet Watercolor",
+    "weight": "255 gsm",
+    "description": "Mould-Made - Cold Press - Textured",
+    "price": 18.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 10,
+    "name": "Moenkopi Unryu Fiber",
+    "weight": "55 gsm (Rice Paper)",
+    "description": "Long-Fiber Washi Paper",
+    "price": 18.0,
+    "category": "Fine Art"
+  },
+  {
+    "id": 11,
+    "name": "Canson Baryta Photographique II",
+    "weight": "345 gsm",
+    "description": "100% Acid-Free Cellulose, Barium Sulfate, Clay-Coated, Smooth, Bright White, Gloss: Amazing Color & Durability",
+    "price": 15.0,
+    "category": "Photo"
+  },
+  {
+    "id": 12,
+    "name": "Epson Smooth Luster",
+    "weight": "280 gsm",
+    "description": "Standard Luster (Semi-Gloss) Photo Paper",
+    "price": 9.5,
+    "category": "Photo"
+  },
+  {
+    "id": 13,
+    "name": "Heavyweight Matte Poster - Bright White, Acid-Free",
+    "weight": "230 gsm",
+    "description": "Posters & Graphics",
+    "price": 9.5,
+    "category": "Photo"
+  },
+  {
+    "id": 14,
+    "name": "Phototex Wallcovering (Repositionable, Adhesive-Backed) 24” or 42” Wide Sections",
+    "weight": "",
+    "description": "Photo Murals - Signage",
+    "price": 12.5,
+    "category": "Photo"
+  },
+  {
+    "id": 15,
+    "name": "Hemp-Agave-Sugar Cane Bamboo",
+    "weight": "",
+    "description": "Natural Line",
+    "price": 20.0,
+    "category": "Photo"
+  },
+  {
+    "id": 16,
+    "name": "Bamboo Gloss Baryta",
+    "weight": "",
+    "description": "Natural Line",
+    "price": 21.0,
+    "category": "Photo"
+  }
+]
