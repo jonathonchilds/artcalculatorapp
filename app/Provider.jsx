@@ -15,16 +15,11 @@ export const Provider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/api/data");
+      const response = await fetch("/papers.json");
       const data = await response.json();
-      const fineArtPapers = data.filter(
-        (paper) => paper.category === "Fine Art"
-      );
-      const photoQualityPapers = data.filter(
-        (paper) => paper.category === "Photo"
-      );
-      console.log(fineArtPapers);
-      console.log(photoQualityPapers);
+      console.log(data);
+      const fineArtPapers = data.filter((p) => p.category === "Fine Art");
+      const photoQualityPapers = data.filter((p) => p.category === "Photo");
       setFineArtPapers(fineArtPapers);
       setPhotoQualityPapers(photoQualityPapers);
       setIsLoading(false);

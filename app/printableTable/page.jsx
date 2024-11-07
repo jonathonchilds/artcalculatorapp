@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useContext } from "react";
-import { useRouter } from "next/navigation";
 import { AppStateContext } from "@app/Provider";
 
 const PrintableTable = () => {
@@ -11,9 +10,8 @@ const PrintableTable = () => {
     imageWidth,
     imageHeight,
     fineArtPapers,
-    photoQualityPapers,
-    isLoading,
-  } = useContext(AppStateContext);
+    photoQualityPapers
+    } = useContext(AppStateContext);
 
   const finalWidth = +imageWidth + +borderWidth * 2;
   const finalHeight = +imageHeight + +borderHeight * 2;

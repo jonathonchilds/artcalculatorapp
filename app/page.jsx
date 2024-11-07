@@ -1,6 +1,5 @@
 "use client";
 
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useContext, useEffect, useState } from "react";
 import { AppStateContext } from "@app/Provider";
 import Link from "next/link";
@@ -145,17 +144,14 @@ const Home = () => {
                 </td>
               </tr>
             ) : (
-              fineArtPapers.map((paper) => {
-                const priceEach = calculatePriceEach(
-                  finalSheetSize,
-                  paper.multiplier
-                );
+              fineArtPapers.map((p) => {
+                const priceEach = calculatePriceEach(finalSheetSize, p.price);
                 const priceFiveCopies = roundToTwo(priceEach * 0.9);
                 return (
-                  <tr key={paper.id}>
-                    <td className="px-5">{paper.paper_type}</td>
-                    <td>{paper.paper_weight}</td>
-                    <td>{paper.paper_description}</td>
+                  <tr key={p.id}>
+                    <td className="px-5">{p.name}</td>
+                    <td>{p.weight}</td>
+                    <td>{p.description}</td>
                     <td>${priceEach.toFixed(2)}</td>
                     <td>${priceFiveCopies.toFixed(2)}</td>
                     <td
@@ -177,24 +173,17 @@ const Home = () => {
         </table>
       </section>
       <div className="sm:hidden">
-        {fineArtPapers.map((paper) => {
-          const priceEach = calculatePriceEach(
-            finalSheetSize,
-            paper.multiplier
-          );
+        {fineArtPapers.map((p) => {
+          const priceEach = calculatePriceEach(finalSheetSize, p.price);
           const priceFiveCopies = roundToTwo(priceEach * 0.9);
           return (
             <div
-              key={paper.id}
+              key={p.id}
               className="border-2 border-slate-600 my-12 h-auto rounded-lg p-10 mx-4"
             >
-              <h2 className="font-bold text-center pb-4 text-2xl">
-                {paper.paper_type}
-              </h2>
-              <p className="text-center pb-1 text-lg">{paper.paper_weight}</p>
-              <p className="text-center pb-6 text-lg">
-                {paper.paper_description}
-              </p>
+              <h2 className="font-bold text-center pb-4 text-2xl">{p.name}</h2>
+              <p className="text-center pb-1 text-lg">{p.weight}</p>
+              <p className="text-center pb-6 text-lg">{p.description}</p>
               <p className="text-center pb-3 font-semibold text-xl">
                 Each: ${priceEach.toFixed(2)}
               </p>
@@ -239,17 +228,14 @@ const Home = () => {
                 </td>
               </tr>
             ) : (
-              photoQualityPapers.map((paper) => {
-                const priceEach = calculatePriceEach(
-                  finalSheetSize,
-                  paper.multiplier
-                );
+              photoQualityPapers.map((p) => {
+                const priceEach = calculatePriceEach(finalSheetSize, p.price);
                 const priceFiveCopies = roundToTwo(priceEach * 0.9);
                 return (
-                  <tr key={paper.id}>
-                    <td className="px-5">{paper.paper_type}</td>
-                    <td>{paper.paper_weight}</td>
-                    <td>{paper.paper_description}</td>
+                  <tr key={p.id}>
+                    <td className="px-5">{p.name}</td>
+                    <td>{p.weight}</td>
+                    <td>{p.description}</td>
                     <td>${priceEach.toFixed(2)}</td>
                     <td>${priceFiveCopies.toFixed(2)}</td>
                     <td
@@ -271,24 +257,17 @@ const Home = () => {
         </table>
       </section>
       <div className="sm:hidden">
-        {photoQualityPapers.map((paper) => {
-          const priceEach = calculatePriceEach(
-            finalSheetSize,
-            paper.multiplier
-          );
+        {photoQualityPapers.map((p) => {
+          const priceEach = calculatePriceEach(finalSheetSize, p.price);
           const priceFiveCopies = roundToTwo(priceEach * 0.9);
           return (
             <div
-              key={paper.id}
+              key={p.id}
               className="border-2 border-slate-600 my-12 h-auto rounded-lg p-10 mx-4"
             >
-              <h2 className="font-bold text-center pb-4 text-2xl">
-                {paper.paper_type}
-              </h2>
-              <p className="text-center pb-1 text-lg">{paper.paper_weight}</p>
-              <p className="text-center pb-6 text-lg">
-                {paper.paper_description}
-              </p>
+              <h2 className="font-bold text-center pb-4 text-2xl">{p.name}</h2>
+              <p className="text-center pb-1 text-lg">{p.weight}</p>
+              <p className="text-center pb-6 text-lg">{p.description}</p>
               <p className="text-center pb-3 font-semibold text-xl">
                 Each: ${priceEach.toFixed(2)}
               </p>

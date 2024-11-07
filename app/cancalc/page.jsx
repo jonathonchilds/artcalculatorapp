@@ -6,7 +6,7 @@ const canCalc = () => {
   const [imageWidth, setImageWidth] = useState(0);
   const [imageHeight, setImageHeight] = useState(0);
 
-  const printMultiplier = 16.75;
+  const printMultiplier = 17.75;
   const standardFramingMultiplier = 1.2;
   const galleryWrapMultiplier = 1.34;
   const deepGalleryWrapMultiplier = 1.62;
