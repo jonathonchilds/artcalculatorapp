@@ -15,23 +15,18 @@ const canCalc = () => {
   const width = parseFloat(imageWidth);
   const height = parseFloat(imageHeight);
 
-  const twoInchBorder =
-    (((width + 4) * (height + 4)) / 144) * printMultiplier;
+  const twoInchBorder = (((width + 4) * (height + 4)) / 144) * printMultiplier;
   const threeInchBorder =
     (((width + 6) * (height + 6)) / 144) * printMultiplier;
 
   const standardFraming =
-    twoInchBorder +
-    (width + height) * standardFramingMultiplier;
-  const galleryWrap =
-    twoInchBorder +
-    (width + height) * galleryWrapMultiplier;
+    twoInchBorder + (width + height) * standardFramingMultiplier;
+  const galleryWrap = twoInchBorder + (width + height) * galleryWrapMultiplier;
   const deepGalleryWrap =
-    threeInchBorder +
-    (width + height) * deepGalleryWrapMultiplier;
+    threeInchBorder + (width + height) * deepGalleryWrapMultiplier;
 
   const brushstrokes =
-    ((width * height) / 144) * brushstrokesMultiplier;
+    (((width + 4) * (height + 4)) / 144) * brushstrokesMultiplier;
 
   function roundToTwo(num) {
     const numBeforeFixed = +(Math.round(num + "e+2") + "e-2");
